@@ -1,0 +1,35 @@
+{
+  "name": "VIRENNA Ehrenzertifikat",
+  "short_name": "Zertifikat",
+  "description": "Ein Ehrenzertifikat für Mama – mit Würde, Liebe und Hoffnung.",
+  "lang": "de",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fffdf8",
+  "theme_color": "#d4af37",
+  "icons": [
+    {
+      "src": "favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["education", "health", "tribute", "family"],
+  "screenshots": [],
+  "dir": "ltr"
+}

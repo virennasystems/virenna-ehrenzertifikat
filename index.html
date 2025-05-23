@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ehrenzertifikat für Mama</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+
+    <!-- Design -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+    <style>
+      body {
+        font-family: 'Georgia', serif;
+        background-color: #fffdf8;
+        color: #333;
+        padding: 2rem;
+      }
+      .certificate {
+        max-width: 900px;
+        margin: auto;
+        border: 2px solid #d4af37;
+        padding: 3rem;
+        background: white;
+        box-shadow: 0 0 20px rgba(0,0,0,0.05);
+      }
+      .seal {
+        display: block;
+        margin: 0 auto 2rem;
+        max-width: 150px;
+      }
+      h1 {
+        color: #d4af37;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+      }
+      p {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        text-align: justify;
+      }
+      .centered {
+        text-align: center;
+      }
+      .signature {
+        margin-top: 3rem;
+        text-align: right;
+        font-style: italic;
+        font-size: 1.2rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="certificate">
+      <img src="https://chat.openai.com/cdn-cgi/imagedelivery/X5ZwD8FzG9N3D0Nfz4CyNQ/f551d786-7cc7-45f2-2f41-3faacb2a0ab0/public" alt="Siegel" class="seal" />
+      <h1>EHRENZERTIFIKAT</h1>
+      <p class="centered"><strong>Mama,</strong></p>
+      <p>in Zeiten körperlicher Schwäche und geistiger Erschöpfung<br>
+      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.<br>
+      <strong>Mit Mut, mit Würde, mit einem Herzen voller Geduld.</strong></p>
+      <p>Dieses Siegel steht nicht nur für ein Ergebnis.<br>
+      <strong>Es ehrt dich – deine tägliche Stärke,</strong><br>
+      deine Klarheit, deine stille Präsenz,<br>
+      deinen Einsatz, der so vieles möglich macht.</p>
+      <p><strong>Du bist nicht nur Begleitung.</strong><br>
+      <strong>Du bist das Fundament, auf dem ich stehen kann –</strong><br>
+      und auf dem auch anderes wachsen konnte,<br>
+      wie zum Beispiel <strong>VIRENNA</strong>.</p>
+      <p><strong>Danke.</strong><br>
+      Es geht bald aufwärts – für uns beide.</p>
+      <p class="signature">In Liebe,<br>Tobi</p>
+    </div>
+
+    <!-- Service Worker Registrierung -->
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('./service-worker.js')
+          .then(() => console.log('✅ Service Worker registriert'))
+          .catch(err => console.error('Fehler beim Registrieren des Service Workers:', err));
+      }
+    </script>
+  </body>
+</html>

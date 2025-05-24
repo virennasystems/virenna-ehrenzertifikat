@@ -7,45 +7,55 @@
   <style>
     :root {
       --gold: #f4c430;
+      --bg: #111;
+      --text: #fefefe;
     }
 
     body {
       margin: 0;
+      padding: 2rem;
+      background: var(--bg);
+      color: var(--text);
       font-family: Georgia, serif;
-      background: #121212;
-      color: #fdfdfd;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      line-height: 1.8;
     }
 
-    .certificate {
-      border: 4px solid var(--gold);
-      padding: 50px 40px;
-      max-width: 700px;
-      background: #1b1b1b;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    .frame {
+      border: 6px solid var(--gold);
+      padding: 3rem;
+      max-width: 750px;
+      background: #1a1a1a;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .seal-wrapper {
+      border: 2px solid var(--gold);
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 2rem;
     }
 
     .seal {
-      display: block;
-      margin: 0 auto 2rem;
-      width: 180px;
-      filter: drop-shadow(0 0 8px #f4c430aa);
+      max-width: 120px;
+      height: auto;
     }
 
     h1 {
+      color: var(--gold);
       text-align: center;
       font-size: 2.4rem;
-      color: var(--gold);
-      margin-bottom: 2.5rem;
       letter-spacing: 1px;
+      margin-bottom: 2rem;
     }
 
     p {
-      margin: 1.2rem 0;
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin: 0.8rem 0;
     }
 
     .highlight {
@@ -55,22 +65,31 @@
 
     .signature {
       text-align: right;
-      font-style: italic;
-      color: var(--gold);
       margin-top: 3rem;
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .heart {
+      font-size: 2em;
+      color: var(--gold);
+      margin-left: 0.3rem;
+      vertical-align: middle;
     }
   </style>
 </head>
 <body>
-  <div class="certificate">
-    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
+  <div class="frame">
+    <div class="seal-wrapper">
+      <img src="VIRENNA_Siegel.PNG" alt="VIRENNA Siegel" class="seal" />
+    </div>
 
     <h1>EHRENZERTIFIKAT</h1>
 
     <p><span class="highlight">Mama,</span></p>
 
-    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br>
-    bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
+    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
+       bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
 
     <p class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
 
@@ -78,19 +97,19 @@
 
     <p><span class="highlight">sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</span></p>
 
-    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
-    deine Klarheit, deine stille Präsenz,<br>
-    deinen Einsatz, der so vieles möglich macht.</p>
+    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span> deine Klarheit, deine stille Präsenz,<br />
+       deinen Einsatz, der so vieles möglich macht.</p>
 
     <p>Du bist nicht nur Begleitung.</p>
 
-    <p><span class="highlight">Du bist das Fundament, auf dem ich stehen kann –</span><br>
-    und auf dem auch anderes wachsen konnte,<br>
-    wie zum Beispiel <span class="highlight">VIRENNA.</span></p>
+    <p class="highlight">Du bist das Fundament, auf dem ich stehen kann –</p>
 
-    <p><span class="highlight">Danke. ♥</span></p>
+    <p>und auf dem auch anderes wachsen konnte,<br />
+       wie zum Beispiel <span class="highlight">VIRENNA.</span></p>
 
-    <div class="signature">In Liebe,<br>Tobi</div>
+    <p class="highlight">Danke.<span class="heart" aria-hidden="true">♥</span></p>
+
+    <p class="signature">In Liebe,<br />Tobi</p>
   </div>
 </body>
 </html>

@@ -2,101 +2,89 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ehrenzertifikat für Mama</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ehrenzertifikat</title>
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
   <style>
     body {
-      font-family: 'Georgia', serif;
-      background-color: #fffdf8;
-      color: #111 !important;
-      padding: 2rem;
       margin: 0;
+      font-family: 'Georgia', serif;
+      background-color: #111;
+      color: #ffd700;
+      padding: 2rem;
     }
 
-    .certificate {
-      max-width: 900px;
-      margin: auto;
-      border: 2px solid #d4af37;
-      padding: 3rem;
-      background: #ffffff;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      border: 3px solid #ffd700;
+      padding: 2rem;
+      background-color: #1a1a1a;
     }
 
-    .seal {
+    img.siegel {
       display: block;
       margin: 0 auto 2rem;
-      max-width: 150px;
-      height: auto;
+      width: 100px;
     }
 
     h1 {
-      font-size: clamp(1.8rem, 5vw, 2.6rem);
-      color: #d4af37;
       text-align: center;
-      margin-bottom: 2rem;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #ffd700;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 1.4rem;
+      margin: 1rem 0;
+      color: #ffd700;
     }
 
     p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      text-align: justify;
-      color: #222 !important;
+      line-height: 1.6;
+      color: #e0c15f;
+      margin: 0.5rem 0;
     }
 
-    strong {
-      color: #000 !important;
-      font-weight: 600;
-    }
-
-    .centered {
-      text-align: center;
+    p.bold {
+      font-weight: bold;
+      color: #ffd700;
     }
 
     .signature {
-      margin-top: 3rem;
       text-align: right;
+      margin-top: 2rem;
       font-style: italic;
-      font-size: 1.1rem;
+      color: #aaa;
     }
 
-    @media (prefers-color-scheme: dark) {
+    @media (max-width: 600px) {
       body {
-        background-color: #121212 !important;
-        color: #eaeaea !important;
-      }
-
-      .certificate {
-        background-color: #1e1e1e;
-        border-color: #ffd700;
-      }
-
-      h1, strong {
-        color: #ffd700 !important;
+        padding: 1rem;
       }
     }
   </style>
 </head>
 <body>
-  <div class="certificate">
-    <img src="VIRENNA_Siegel.PNG" alt="VIRENNA Siegel" class="seal" />
+  <div class="container">
+    <img class="siegel" src="VIRENNA_Siegel.PNG" alt="Siegel" />
     <h1>EHRENZERTIFIKAT</h1>
-    <p class="centered"><strong>Mama,</strong></p>
-    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br>
-    bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
-    <p><strong>Mit Mut, mit Würde, mit einem Herzen voller Geduld.</strong></p>
-    <p>Dieses Siegel steht nicht nur für ein Ergebnis.<br>
-    <strong>Es ehrt dich – deine tägliche Stärke,</strong><br>
-    deine Klarheit, deine stille Präsenz,<br>
-    deinen Einsatz, der so vieles möglich macht.</p>
-    <p><strong>Du bist nicht nur Begleitung.</strong><br>
-    <strong>Du bist das Fundament, auf dem ich stehen kann –</strong><br>
-    und auf dem auch anderes wachsen konnte,<br>
-    wie zum Beispiel <strong>VIRENNA</strong>.</p>
-    <p><strong>Danke.</strong><br>
-    Es geht bald aufwärts – für uns beide.</p>
+    <h2>Mama,</h2>
+    <p>in Zeiten körperlicher Schwäche und geistiger Erschöpfung</p>
+    <p>bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
+    <p class="bold">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
+    <p>Dieses Siegel steht nicht nur für ein Ergebnis.</p>
+    <p class="bold">Es ehrt dich – deine tägliche Stärke,</p>
+    <p>deine Klarheit, deine stille Präsenz,</p>
+    <p>deinen Einsatz, der so vieles möglich macht.</p>
+    <p class="bold">Du bist nicht nur Begleitung.<br>Du bist das Fundament, auf dem ich stehen kann –</p>
+    <p>und auf dem auch anderes wachsen konnte, wie zum Beispiel <span class="bold">VIRENNA</span>.</p>
+    <p class="bold">Danke.</p>
     <p class="signature">In Liebe,<br>Tobi</p>
   </div>
 </body>

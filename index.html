@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f4c430" />
   <title>EHRENZERTIFIKAT</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
-  <link rel="icon" href="favicon.ico" sizes="any">
   <style>
     :root {
       --gold: #f4c430;
@@ -36,7 +34,8 @@
       display: block;
       margin: 0 auto 2rem;
       width: 180px;
-      box-shadow: 0 0 12px rgba(244, 196, 48, 0.6);
+      filter: drop-shadow(0 0 8px #f4c430aa);
+      cursor: pointer;
     }
 
     h1 {
@@ -102,10 +101,16 @@
       }
     }
   </style>
+
+  <script>
+    function exportAsPDF() {
+      window.print();
+    }
+  </script>
 </head>
 <body>
   <main role="document" aria-label="Ehrenzertifikat">
-    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
+    <img src="VIRENNA_Siegel.PNG" alt="VIRENNA Siegel – Symbol für Vertrauen & Stärke" class="seal" onclick="exportAsPDF()" />
 
     <h1>EHRENZERTIFIKAT</h1>
 

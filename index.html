@@ -5,105 +5,121 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>EHRENZERTIFIKAT</title>
   <link rel="manifest" href="site.webmanifest" />
-  <link rel="icon" href="favicon-32x32.png" type="image/png" />
-  <meta name="theme-color" content="#d4af37" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').catch(console.error);
+    }
+  </script>
+  <link rel="icon" href="favicon-32x32.png" sizes="32x32" />
   <style>
-    * {
+    :root {
+      --gold: #f4c430;
+      --bg: #121212;
+      --text: #f5f5f5;
+    }
+
+    body {
       margin: 0;
       padding: 0;
-      box-sizing: border-box;
+      background: var(--bg);
+      font-family: Georgia, serif;
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
-    html, body {
-      background-color: #121212;
-      color: #f0f0f0;
-      font-family: 'Georgia', serif;
-      line-height: 1.7;
-    }
-    .container {
+
+    .certificate {
+      border: 4px solid var(--gold);
+      padding: 40px 30px;
       max-width: 600px;
-      margin: 40px auto;
-      padding: 30px 20px;
-      background-color: #1a1a1a;
-      border: 4px solid #e0b300;
+      background: #1b1b1b;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.6);
     }
-    .siegel {
+
+    .seal {
       display: block;
-      margin: 0 auto 25px;
-      width: 120px;
-      height: auto;
-      filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.4));
+      margin: 0 auto 30px auto;
+      width: 160px;
+      filter: drop-shadow(0 0 8px #f4c430aa);
     }
+
     h1 {
       text-align: center;
-      color: #ffd700;
-      font-size: 2rem;
+      color: var(--gold);
+      font-size: 2.4rem;
       margin-bottom: 20px;
+      letter-spacing: 1px;
     }
-    .text-block {
-      font-size: 1.1rem;
-      color: #eee;
+
+    p {
+      margin: 0 0 14px 0;
+      font-size: 1rem;
+      line-height: 1.6;
     }
-    .text-block strong {
-      color: #ffd700;
+
+    strong {
+      color: var(--gold);
     }
-    .highlight {
-      color: #ffd700;
-      font-weight: bold;
-    }
+
     .signature {
+      margin-top: 2.5rem;
       text-align: right;
       font-style: italic;
-      color: #e0b76d;
-      margin-top: 30px;
+      color: #d4af58;
     }
+
     @media print {
       body {
-        background: white;
-        color: black;
+        background: white !important;
+        color: black !important;
+        zoom: 100%;
       }
-      .container {
+
+      .certificate {
         border: none;
+        box-shadow: none;
+        max-width: 100%;
+        width: 100%;
+        padding: 0;
       }
-      .siegel {
+
+      .seal {
         filter: none;
+      }
+
+      strong, .signature {
+        color: black !important;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="siegel" />
+  <div class="certificate">
+    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
     <h1>EHRENZERTIFIKAT</h1>
-    <div class="text-block">
-      <p><strong>Mama,</strong><br>
-      in Zeiten körperlicher Schwäche und geistiger Erschöpfung<br>
-      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
 
-      <p class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
-      <p>Dieses Siegel steht nicht nur für ein Ergebnis.</p>
+    <p><strong>Mama,</strong><br>
+    in Zeiten körperlicher Schwäche und geistiger Erschöpfung<br>
+    bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
 
-      <p class="highlight">Es ehrt dich – deine tägliche Stärke,</p>
-      <p>deine Klarheit, deine stille Präsenz,<br>
-      deinen Einsatz, der so vieles möglich macht.</p>
+    <p><strong>Mit Mut, mit Würde, mit einem Herzen voller Geduld.</strong></p>
 
-      <p class="highlight">Du bist nicht nur Begleitung.<br>
-      Du bist das Fundament, auf dem ich stehen kann –</p>
+    <p>Dieses Siegel steht nicht nur für ein Ergebnis.</p>
 
-      <p>und auf dem auch anderes wachsen konnte,<br>
-      wie zum Beispiel <span class="highlight">VIRENNA</span>.</p>
+    <p><strong>Es ehrt dich – deine tägliche Stärke,</strong><br>
+    deine Klarheit, deine stille Präsenz,<br>
+    deinen Einsatz, der so vieles möglich macht.</p>
 
-      <p class="highlight">Danke.</p>
+    <p><strong>Du bist nicht nur Begleitung.<br>
+    Du bist das Fundament, auf dem ich stehen kann –</strong><br>
+    und auf dem auch anderes wachsen konnte,<br>
+    wie zum Beispiel <strong>VIRENNA</strong>.</p>
 
-      <div class="signature">In Liebe,<br>Tobi</div>
-    </div>
+    <p><strong>Danke.</strong></p>
+
+    <p class="signature">In Liebe,<br>Tobi</p>
   </div>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js')
-        .then(() => console.log("Service Worker registriert."))
-        .catch(e => console.error("Service Worker Fehler:", e));
-    }
-  </script>
 </body>
 </html>

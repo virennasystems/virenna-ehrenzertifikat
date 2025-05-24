@@ -5,10 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EHRENZERTIFIKAT</title>
 
+  <!-- Icons & Manifest -->
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#d4af37" />
 
   <style>
     * {
@@ -60,15 +64,19 @@
 
     .signature {
       text-align: right;
-      margin-top: 3rem;
       font-style: italic;
-      color: #ccc;
+      font-size: 1.05rem;
+      color: #d4af37;
+      text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+      margin-top: 2rem;
     }
 
     @media print {
       body {
         background: #fff;
         color: #000;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
 
       .certificate {
@@ -86,13 +94,18 @@
         color: #000;
         font-weight: bold;
       }
+
+      .signature {
+        color: #d4af37 !important;
+        text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+      }
     }
   </style>
 </head>
 
 <body>
   <div class="certificate">
-    <img src="VIRENNA_Siegel.png" alt="Siegel" class="siegel" />
+    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="siegel" />
     <h1>EHRENZERTIFIKAT</h1>
     <div class="content">
       <p><strong>Mama,</strong></p>
@@ -113,7 +126,7 @@
 
       <p><strong>Danke.</strong></p>
 
-      <p class="signature">In Liebe,<br>Tobi</p>
+      <p class="signature">In Liebe,<br/>Tobi</p>
     </div>
   </div>
 </body>

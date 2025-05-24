@@ -3,8 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4c430" />
   <title>EHRENZERTIFIKAT</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <link rel="icon" href="favicon.ico" sizes="any">
   <style>
     :root {
       --gold: #f4c430;
@@ -22,7 +24,7 @@
       line-height: 1.8;
     }
 
-    .certificate {
+    main[role="document"] {
       border: 4px solid var(--gold);
       padding: 50px 40px;
       max-width: 650px;
@@ -34,7 +36,7 @@
       display: block;
       margin: 0 auto 2rem;
       width: 180px;
-      filter: drop-shadow(0 0 8px #f4c430aa);
+      box-shadow: 0 0 12px rgba(244, 196, 48, 0.6);
     }
 
     h1 {
@@ -46,7 +48,7 @@
     }
 
     p {
-      margin: 1rem 0;
+      margin: 1.2rem 0;
     }
 
     .highlight {
@@ -56,9 +58,9 @@
 
     .heart {
       color: var(--gold);
-      font-size: 1.6em;
+      font-size: 2em;
       vertical-align: middle;
-      margin-left: 0.2em;
+      margin-left: 0.3em;
     }
 
     .signature {
@@ -68,34 +70,41 @@
       margin-top: 3rem;
     }
 
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+
     @media print {
+      @page {
+        margin: 2cm;
+        size: A4 portrait;
+      }
+
       body {
         background: white;
         color: black;
       }
 
-      .certificate {
+      main[role="document"] {
         border: none;
         box-shadow: none;
       }
 
-      .highlight {
-        color: black;
-        font-weight: bold;
-      }
-
-      .heart {
-        color: black;
-      }
-
-      .signature {
+      .highlight, .heart, .signature {
         color: black;
       }
     }
   </style>
 </head>
 <body>
-  <div class="certificate">
+  <main role="document" aria-label="Ehrenzertifikat">
     <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
 
     <h1>EHRENZERTIFIKAT</h1>
@@ -114,8 +123,6 @@
     <p><span class="highlight">Dieses Siegel steht nicht für ein Ziel –<br />
       sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</span></p>
 
-    <p>Dieses Siegel steht nicht nur für ein Ergebnis.</p>
-
     <p>
       <span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
       deine Klarheit, deine stille Präsenz,<br />
@@ -132,9 +139,14 @@
       wie zum Beispiel <span class="highlight">VIRENNA.</span>
     </p>
 
-    <p><span class="highlight">Danke.<span class="heart">♥</span></span></p>
+    <p>
+      <span class="highlight">Danke.
+        <span class="heart" aria-hidden="true">♥</span>
+        <span class="sr-only">Symbol für Liebe</span>
+      </span>
+    </p>
 
     <div class="signature">In Liebe,<br />Tobi</div>
-  </div>
+  </main>
 </body>
 </html>

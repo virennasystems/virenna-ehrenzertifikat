@@ -3,40 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>EHRENZERTIFIKAT</title>
+  <title>Ehrenzertifikat</title>
+  <link rel="icon" href="favicon-32x32.png" type="image/png">
   <link rel="manifest" href="site.webmanifest" />
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js').catch(console.error);
-    }
-  </script>
-  <link rel="icon" href="favicon-32x32.png" sizes="32x32" />
   <style>
     :root {
       --gold: #f4c430;
-      --text: #fefefe;
-      --bg: #121212;
+      --text: #ffffff;
+      --background: #1b1b1b;
     }
 
     body {
+      background: var(--background);
+      color: var(--text);
+      font-family: Georgia, serif;
+      line-height: 1.8;
       margin: 0;
       padding: 0;
-      background: var(--bg);
-      font-family: Georgia, serif;
-      color: var(--text);
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      line-height: 1.8;
     }
 
     .certificate {
       border: 4px solid var(--gold);
       padding: 50px 40px;
       max-width: 650px;
-      background: #1b1b1b;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+      background: var(--background);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
     .seal {
@@ -54,48 +49,38 @@
       letter-spacing: 1px;
     }
 
-    .intro {
-      font-size: 1.1rem;
-      margin-bottom: 1.5rem;
+    p {
+      margin: 1.2rem 0;
     }
 
-    .gold {
-      color: var(--gold);
-    }
-
-    .poetic {
+    .highlight {
       color: var(--gold);
       font-weight: bold;
-      margin: 2rem 0 1.5rem 0;
-      text-align: center;
-      line-height: 1.6;
     }
 
-    .signature {
+    .final {
       text-align: right;
       font-style: italic;
+      color: #d6b55d;
       margin-top: 3rem;
-      color: #d4af58;
+    }
+
+    .heart {
+      color: var(--gold);
+      font-size: 1.2rem;
     }
 
     @media print {
       body {
-        background: white !important;
-        color: black !important;
+        background: #fff;
+        color: #000;
       }
-
       .certificate {
         border: none;
         box-shadow: none;
-        padding: 0;
       }
-
       .seal {
         filter: none;
-      }
-
-      .gold, .signature {
-        color: black !important;
       }
     }
   </style>
@@ -105,39 +90,30 @@
     <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
     <h1>EHRENZERTIFIKAT</h1>
 
-    <p class="intro gold">Mama,</p>
+    <p><span class="highlight">Mama,</span></p>
 
-    <p class="intro">
-      in Zeiten körperlicher Schwäche und geistiger Erschöpfung<br>
-      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.
-    </p>
+    <p>in Zeiten körperlicher Schwäche und geistiger Erschöpfung  
+    bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
 
-    <p class="poetic">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
+    <p><span class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</span></p>
 
-    <p class="intro">
-      Dieses Zertifikat ist kein Geschenk im klassischen Sinn.<br>
-      <span class="gold">Es ist eine Anerkennung – und ein Versprechen.</span>
-    </p>
+    <p><span class="highlight">Dieses Siegel steht nicht für ein Ziel –  
+    sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</span></p>
 
-    <p class="poetic">Dieses Siegel steht nicht für ein Ziel –<br>
-    sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</p>
+    <p>Dieses Siegel steht nicht nur für ein Ergebnis.</p>
 
-    <p class="intro">
-      Deine Klarheit, deine stille Präsenz, dein Einsatz –<br>
-      all das hat dieses Projekt mitgetragen.<br>
-      Ohne dich wäre es nicht möglich gewesen.
-    </p>
+    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>  
+    deine Klarheit, deine stille Präsenz,  
+    deinen Einsatz, der so vieles möglich macht.</p>
 
-    <p class="intro">
-      <span class="gold">Du bist nicht nur Begleitung.</span><br>
-      Du bist das Fundament, auf dem ich stehen kann –<br>
-      und auf dem auch anderes wachsen konnte,<br>
-      wie zum Beispiel <span class="gold">VIRENNA</span>.
-    </p>
+    <p><span class="highlight">Du bist nicht nur Begleitung.  
+    Du bist das Fundament, auf dem ich stehen kann –</span>  
+    und auf dem auch anderes wachsen konnte,  
+    wie zum Beispiel <span class="highlight">VIRENNA</span>.</p>
 
-    <p class="poetic">Danke <span style="color:#f4c430">♥</span></p>
+    <p><span class="highlight">Danke.</span> <span class="heart">♥</span></p>
 
-    <p class="signature">In Liebe,<br>Tobi</p>
+    <p class="final">In Liebe,<br/>Tobi</p>
   </div>
 </body>
 </html>

@@ -2,35 +2,31 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Ehrenzertifikat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EHRENZERTIFIKAT</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
-  <link rel="manifest" href="site.webmanifest" />
   <style>
     :root {
       --gold: #f4c430;
-      --text: #ffffff;
-      --background: #1b1b1b;
     }
 
     body {
-      background: var(--background);
-      color: var(--text);
-      font-family: Georgia, serif;
-      line-height: 1.9;
       margin: 0;
-      padding: 0;
+      font-family: Georgia, serif;
+      background: #121212;
+      color: #fdfdfd;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
+      line-height: 1.8;
     }
 
     .certificate {
       border: 4px solid var(--gold);
       padding: 50px 40px;
       max-width: 650px;
-      background: var(--background);
+      background: #1b1b1b;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
@@ -50,7 +46,7 @@
     }
 
     p {
-      margin: 1.4rem 0;
+      margin: 1rem 0;
     }
 
     .highlight {
@@ -60,27 +56,40 @@
 
     .heart {
       color: var(--gold);
-      font-size: 1.2rem;
+      font-size: 1.6em;
+      vertical-align: middle;
+      margin-left: 0.2em;
     }
 
-    .final {
+    .signature {
       text-align: right;
       font-style: italic;
-      color: #d6b55d;
+      color: var(--gold);
       margin-top: 3rem;
     }
 
     @media print {
       body {
-        background: #fff;
-        color: #000;
+        background: white;
+        color: black;
       }
+
       .certificate {
         border: none;
         box-shadow: none;
       }
-      .seal {
-        filter: none;
+
+      .highlight {
+        color: black;
+        font-weight: bold;
+      }
+
+      .heart {
+        color: black;
+      }
+
+      .signature {
+        color: black;
       }
     }
   </style>
@@ -88,32 +97,44 @@
 <body>
   <div class="certificate">
     <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
+
     <h1>EHRENZERTIFIKAT</h1>
 
     <p><span class="highlight">Mama,</span></p>
 
-    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung  
-    bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
+    <p>
+      In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
+      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.
+    </p>
 
-    <p><span class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</span></p>
+    <p class="highlight">
+      Mit Mut, mit Würde, mit einem Herzen voller Geduld.
+    </p>
 
-    <p><span class="highlight">Dieses Siegel steht nicht für ein Ziel –  
-    sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</span></p>
+    <p><span class="highlight">Dieses Siegel steht nicht für ein Ziel –<br />
+      sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</span></p>
 
     <p>Dieses Siegel steht nicht nur für ein Ergebnis.</p>
 
-    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>  
-    deine Klarheit, deine stille Präsenz,  
-    deinen Einsatz, der so vieles möglich macht.</p>
+    <p>
+      <span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
+      deine Klarheit, deine stille Präsenz,<br />
+      deinen Einsatz, der so vieles möglich macht.
+    </p>
 
-    <p><span class="highlight">Du bist nicht nur Begleitung.  
-    Du bist das Fundament, auf dem ich stehen kann –</span>  
-    und auf dem auch anderes wachsen konnte,  
-    wie zum Beispiel <span class="highlight">VIRENNA</span>.</p>
+    <p class="highlight">
+      Du bist nicht nur Begleitung.<br />
+      Du bist das Fundament, auf dem ich stehen kann –
+    </p>
 
-    <p><span class="highlight">Danke.</span> <span class="heart">♥</span></p>
+    <p>
+      und auf dem auch anderes wachsen konnte,<br />
+      wie zum Beispiel <span class="highlight">VIRENNA.</span>
+    </p>
 
-    <p class="final">In Liebe,<br/>Tobi</p>
+    <p><span class="highlight">Danke.<span class="heart">♥</span></span></p>
+
+    <div class="signature">In Liebe,<br />Tobi</div>
   </div>
 </body>
 </html>

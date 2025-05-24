@@ -2,61 +2,52 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ehrenzertifikat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f4c430" />
+  <title>EHRENZERTIFIKAT</title>
+  <link rel="icon" href="favicon-32x32.png" type="image/png" />
   <style>
     :root {
       --gold: #f4c430;
-      --dark: #111;
     }
 
     body {
       margin: 0;
       font-family: Georgia, serif;
-      background: var(--dark);
+      background: #121212;
       color: #fdfdfd;
       display: flex;
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 2rem;
+      line-height: 1.8;
     }
 
-    .certificate {
-      border: 5px solid var(--gold);
-      padding: 3rem 2.5rem;
-      max-width: 750px;
+    main[role="document"] {
+      border: 4px solid var(--gold);
+      padding: 50px 40px;
+      max-width: 650px;
       background: #1b1b1b;
-      box-shadow: 0 0 25px rgba(244, 196, 48, 0.4);
-    }
-
-    .seal-container {
-      border: 2px solid var(--gold);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1.2rem;
-      margin-bottom: 2rem;
-      background: #111;
-      box-shadow: 0 0 20px rgba(244, 196, 48, 0.4);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
     .seal {
-      width: 150px;
-      filter: drop-shadow(0 0 12px rgba(244, 196, 48, 0.4));
+      display: block;
+      margin: 0 auto 2rem;
+      width: 180px;
+      box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
     }
 
     h1 {
       text-align: center;
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       color: var(--gold);
-      margin: 1.5rem 0;
+      margin-bottom: 2.5rem;
       letter-spacing: 1px;
     }
 
     p {
       margin: 1.2rem 0;
-      line-height: 1.7;
     }
 
     .highlight {
@@ -65,54 +56,68 @@
     }
 
     .heart {
-      font-size: 2em;
       color: var(--gold);
+      font-size: 2em;
       vertical-align: middle;
-      margin-left: 0.25em;
+      margin-left: 0.3em;
     }
 
     .signature {
-      margin-top: 3rem;
       text-align: right;
       font-style: italic;
       color: var(--gold);
+      margin-top: 3rem;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
     }
 
     @media print {
+      @page {
+        margin: 2cm;
+        size: A4 portrait;
+      }
+
       body {
         background: white;
         color: black;
       }
-      .certificate {
+
+      main[role="document"] {
         border: none;
         box-shadow: none;
       }
-      .seal-container {
-        box-shadow: none;
-        background: white;
-      }
-      .highlight,
-      .signature,
-      .heart {
+
+      .highlight, .heart, .signature {
         color: black;
       }
     }
   </style>
 </head>
 <body>
-  <div class="certificate">
-    <div class="seal-container">
-      <img src="VIRENNA_Siegel.PNG" alt="Siegelbild" class="seal" />
-    </div>
+  <main role="document" aria-label="Ehrenzertifikat">
+    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
 
     <h1>EHRENZERTIFIKAT</h1>
 
     <p><span class="highlight">Mama,</span></p>
 
-    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
-    bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
+    <p>
+      In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
+      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.
+    </p>
 
-    <p class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
+    <p class="highlight">
+      Mit Mut, mit Würde, mit einem Herzen voller Geduld.
+    </p>
 
     <p>Dieses Siegel steht nicht für ein Ziel –</p>
 
@@ -120,9 +125,11 @@
       sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.
     </p>
 
-    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
-    deine Klarheit, deine stille Präsenz,<br />
-    deinen Einsatz, der so vieles möglich macht.</p>
+    <p>
+      <span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
+      deine Klarheit, deine stille Präsenz,<br />
+      deinen Einsatz, der so vieles möglich macht.
+    </p>
 
     <p>Du bist nicht nur Begleitung.</p>
 
@@ -130,12 +137,17 @@
       Du bist das Fundament, auf dem ich stehen kann –
     </p>
 
-    <p>und auf dem auch anderes wachsen konnte,<br />
-    wie zum Beispiel <span class="highlight">VIRENNA</span>.</p>
+    <p>
+      und auf dem auch anderes wachsen konnte,<br />
+      wie zum Beispiel <span class="highlight">VIRENNA.</span>
+    </p>
 
-    <p class="highlight">Danke. <span class="heart" aria-label="Herz">♥</span></p>
+    <p class="highlight">
+      Danke. <span class="heart" aria-hidden="true">♥</span>
+      <span class="sr-only">Symbol für Liebe</span>
+    </p>
 
     <div class="signature">In Liebe,<br />Tobi</div>
-  </div>
+  </main>
 </body>
 </html>

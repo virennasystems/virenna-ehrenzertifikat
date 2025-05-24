@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>EHRENZERTIFIKAT</title>
-  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <title>Ehrenzertifikat</title>
   <style>
     :root {
       --gold: #f4c430;
@@ -22,10 +21,10 @@
       line-height: 1.8;
     }
 
-    main[role="document"] {
+    .certificate {
       border: 4px solid var(--gold);
       padding: 50px 40px;
-      max-width: 650px;
+      max-width: 700px;
       background: #1b1b1b;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
@@ -35,7 +34,6 @@
       margin: 0 auto 2rem;
       width: 180px;
       filter: drop-shadow(0 0 8px #f4c430aa);
-      cursor: pointer;
     }
 
     h1 {
@@ -55,103 +53,44 @@
       font-weight: bold;
     }
 
-    .heart {
-      color: var(--gold);
-      font-size: 2em;
-      vertical-align: middle;
-      margin-left: 0.3em;
-    }
-
     .signature {
       text-align: right;
       font-style: italic;
       color: var(--gold);
       margin-top: 3rem;
     }
-
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
-    @media print {
-      @page {
-        margin: 2cm;
-        size: A4 portrait;
-      }
-
-      body {
-        background: white;
-        color: black;
-      }
-
-      main[role="document"] {
-        border: none;
-        box-shadow: none;
-      }
-
-      .highlight, .heart, .signature {
-        color: black;
-      }
-    }
   </style>
-
-  <script>
-    function exportAsPDF() {
-      window.print();
-    }
-  </script>
 </head>
 <body>
-  <main role="document" aria-label="Ehrenzertifikat">
-    <img src="VIRENNA_Siegel.PNG" alt="VIRENNA Siegel – Symbol für Vertrauen & Stärke" class="seal" onclick="exportAsPDF()" />
+  <div class="certificate">
+    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
 
     <h1>EHRENZERTIFIKAT</h1>
 
     <p><span class="highlight">Mama,</span></p>
 
-    <p>
-      In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
-      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.
-    </p>
+    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br>
+    bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
 
-    <p class="highlight">
-      Mit Mut, mit Würde, mit einem Herzen voller Geduld.
-    </p>
+    <p class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
 
-    <p><span class="highlight">Dieses Siegel steht nicht für ein Ziel –<br />
-      sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</span></p>
+    <p>Dieses Siegel steht nicht für ein Ziel –</p>
 
-    <p>
-      <span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
-      deine Klarheit, deine stille Präsenz,<br />
-      deinen Einsatz, der so vieles möglich macht.
-    </p>
+    <p><span class="highlight">sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</span></p>
 
-    <p class="highlight">
-      Du bist nicht nur Begleitung.<br />
-      Du bist das Fundament, auf dem ich stehen kann –
-    </p>
+    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
+    deine Klarheit, deine stille Präsenz,<br>
+    deinen Einsatz, der so vieles möglich macht.</p>
 
-    <p>
-      und auf dem auch anderes wachsen konnte,<br />
-      wie zum Beispiel <span class="highlight">VIRENNA.</span>
-    </p>
+    <p>Du bist nicht nur Begleitung.</p>
 
-    <p>
-      <span class="highlight">Danke.
-        <span class="heart" aria-hidden="true">♥</span>
-        <span class="sr-only">Symbol für Liebe</span>
-      </span>
-    </p>
+    <p><span class="highlight">Du bist das Fundament, auf dem ich stehen kann –</span><br>
+    und auf dem auch anderes wachsen konnte,<br>
+    wie zum Beispiel <span class="highlight">VIRENNA.</span></p>
 
-    <div class="signature">In Liebe,<br />Tobi</div>
-  </main>
+    <p><span class="highlight">Danke. ♥</span></p>
+
+    <div class="signature">In Liebe,<br>Tobi</div>
+  </div>
 </body>
 </html>

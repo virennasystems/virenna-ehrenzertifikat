@@ -5,7 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#f4c430" />
   <title>EHRENZERTIFIKAT</title>
+
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
+
   <style>
     :root {
       --gold: #f4c430;
@@ -80,6 +84,16 @@
       border: 0;
     }
 
+    /* Responsive Optimierung für Mobilgeräte */
+    @media (max-width: 500px) {
+      main[role="document"] {
+        padding: 30px 20px;
+        margin: 1rem;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
     @media print {
       @page {
         margin: 2cm;
@@ -104,7 +118,7 @@
 </head>
 <body>
   <main role="document" aria-label="Ehrenzertifikat">
-    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
+    <img src="VIRENNA_Siegel.PNG" alt="VIRENNA Siegel für besondere Anerkennung" class="seal" />
 
     <h1>EHRENZERTIFIKAT</h1>
 
@@ -149,5 +163,16 @@
 
     <div class="signature">In Liebe,<br />Tobi</div>
   </main>
+
+  <!-- Service Worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(reg => console.log('Service Worker registriert:', reg))
+          .catch(err => console.error('Service Worker Fehler:', err));
+      });
+    }
+  </script>
 </body>
 </html>

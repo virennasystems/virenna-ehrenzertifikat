@@ -11,22 +11,30 @@
       --gold: #f4c430;
     }
 
+    html, body {
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Georgia, serif;
       background: #121212;
       color: #fdfdfd;
-      min-height: 100vh;
-      padding: 1rem;
-      box-sizing: border-box;
+      padding: 1.5rem;
+      line-height: 1.8;
     }
 
     main[role="document"] {
+      max-width: 650px;
+      margin: auto;
+      background: #1b1b1b;
       border: 4px solid var(--gold);
       padding: 50px 40px;
-      max-width: 650px;
-      margin: 0 auto;
-      background: #1b1b1b;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
@@ -34,6 +42,7 @@
       display: block;
       margin: 0 auto 2rem;
       width: 180px;
+      max-width: 100%;
       box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
     }
 

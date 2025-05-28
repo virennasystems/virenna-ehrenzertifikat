@@ -2,44 +2,58 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="theme-color" content="#f4c430" />
   <title>EHRENZERTIFIKAT</title>
-  <link rel="manifest" href="site.webmanifest" />
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('✅ Service Worker registriert'))
+        .catch(err => console.error('Service Worker Fehler:', err));
+    }
+  </script>
   <style>
-    :root { --gold: #f4c430; }
-
-    html, body {
-      width: 100%;
-      overflow-x: hidden;
+    :root {
+      --gold: #f4c430;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    body {
+    html, body {
       margin: 0;
-      font-family: Georgia, serif;
+      padding: 0;
+      overflow-x: hidden;
+      width: 100%;
       background: #121212;
       color: #fdfdfd;
+      font-family: Georgia, serif;
+    }
+
+    body {
       padding: 1.5rem;
       line-height: 1.8;
     }
 
     main[role="document"] {
+      width: 100%;
       max-width: 650px;
       margin: auto;
       background: #1b1b1b;
       border: 4px solid var(--gold);
-      padding: 50px 40px;
+      padding: 2rem;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
     .seal {
       display: block;
       margin: 0 auto 2rem;
-      width: 180px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 180px;
+      height: auto;
       box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
     }
 
@@ -51,7 +65,9 @@
       letter-spacing: 1px;
     }
 
-    p { margin: 1.2rem 0; }
+    p {
+      margin: 1.2rem 0;
+    }
 
     .highlight {
       color: var(--gold);
@@ -104,32 +120,52 @@
       }
     }
   </style>
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-      });
-    }
-  </script>
 </head>
 <body>
   <main role="document" aria-label="Ehrenzertifikat">
     <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
+
     <h1>EHRENZERTIFIKAT</h1>
+
     <p><span class="highlight">Mama,</span></p>
-    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
-       bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
-    <p class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
+
+    <p>
+      In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
+      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.
+    </p>
+
+    <p class="highlight">
+      Mit Mut, mit Würde, mit einem Herzen voller Geduld.
+    </p>
+
     <p>Dieses Siegel steht nicht für ein Ziel –</p>
-    <p class="highlight">sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</p>
-    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span> deine Klarheit, deine stille Präsenz,<br />
-       deinen Einsatz, der so vieles möglich macht.</p>
+
+    <p class="highlight">
+      sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.
+    </p>
+
+    <p>
+      <span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
+      deine Klarheit, deine stille Präsenz,<br />
+      deinen Einsatz, der so vieles möglich macht.
+    </p>
+
     <p>Du bist nicht nur Begleitung.</p>
-    <p class="highlight">Du bist das Fundament, auf dem ich stehen kann –</p>
-    <p>und auf dem auch anderes wachsen konnte,<br />
-       wie zum Beispiel <span class="highlight">VIRENNA.</span></p>
-    <p class="highlight">Danke. <span class="heart" aria-hidden="true">♥</span>
-       <span class="sr-only">Symbol für Liebe</span></p>
+
+    <p class="highlight">
+      Du bist das Fundament, auf dem ich stehen kann –
+    </p>
+
+    <p>
+      und auf dem auch anderes wachsen konnte,<br />
+      wie zum Beispiel <span class="highlight">VIRENNA.</span>
+    </p>
+
+    <p class="highlight">
+      Danke. <span class="heart" aria-hidden="true">♥</span>
+      <span class="sr-only">Symbol für Liebe</span>
+    </p>
+
     <div class="signature">In Liebe,<br />Tobi</div>
   </main>
 </body>

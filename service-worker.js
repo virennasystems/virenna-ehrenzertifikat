@@ -6,7 +6,7 @@ const urlsToCache = [
   './VIRENNA_Siegel.PNG',
   './manifest.json',
   './apple-touch-icon.png'
-  // './offline.html' // Nur falls du eine eigene Offline-Seite anbieten möchtest
+  './offline.html' // Nur falls du eine eigene Offline-Seite anbieten möchtest
 ];
 
 // Installation – Dateien cachen

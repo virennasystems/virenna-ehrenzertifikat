@@ -1,26 +1,41 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8">
-  <title>Offline</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#121212" />
+  <title>Offline – Ehrenzertifikat</title>
   <style>
     body {
-      background: #fff;
+      background-color: #121212;
+      color: #f4c430;
       font-family: Georgia, serif;
       display: flex;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
-      color: #333;
-      padding: 2rem;
       text-align: center;
+      margin: 0;
+      padding: 2rem;
+    }
+    main {
+      max-width: 600px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1.1rem;
+      line-height: 1.7;
     }
   </style>
 </head>
 <body>
-  <div>
+  <main role="main">
     <h1>Du bist offline</h1>
-    <p>Dieses Zertifikat ist derzeit nicht verfügbar.<br>Bitte stelle eine Internetverbindung her.</p>
-  </div>
+    <p>Das Ehrenzertifikat konnte nicht geladen werden, weil keine Internetverbindung besteht.<br>
+    Bitte stelle eine Verbindung her und lade die Seite neu.</p>
+  </main>
 </body>
 </html>

@@ -4,7 +4,7 @@ const urlsToCache = [
   './index.html',
   './favicon-32x32.png',
   './VIRENNA_Siegel.PNG',
-  './manifest.json',
+  './site.webmanifest.json',
   './apple-touch-icon.png'
   './offline.html' // Nur falls du eine eigene Offline-Seite anbieten möchtest
 ];

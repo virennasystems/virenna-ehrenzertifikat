@@ -166,8 +166,8 @@
   <!-- Service Worker Registrierung -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/virenna-ehrenzertifikat/service-worker.js')
-        .then(reg => console.log('Service Worker registriert:', reg))
+      navigator.serviceWorker.register('./service-worker.js', { scope: './' })
+        .then(reg => console.log('[ServiceWorker] Aktiviert:', CACHE_NAME);
         .catch(err => console.error('Service Worker Fehler:', err));
     }
   </script>

@@ -1,31 +1,27 @@
-const CACHE_VERSION = 'v4'; // Bei jeder Änderung bitte erhöhen
-const CACHE_NAME = `ehrenzertifikat-cache-${CACHE_VERSION}`;
-const OFFLINE_URL = './offline.html';
-
+const CACHE_NAME = 'ehrenzertifikat-v2';
 const urlsToCache = [
   './',
   './index.html',
   './favicon-32x32.png',
-  './apple-touch-icon.png',
   './VIRENNA_Siegel.PNG',
-  './site.webmanifest',
-  OFFLINE_URL
+  './manifest.json',
+  './apple-touch-icon.png'
+  // './offline.html' // Nur falls du eine eigene Offline-Seite anbieten möchtest
 ];
 
 // Installation – Dateien cachen
 self.addEventListener('install', event => {
-  self.skipWaiting();
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(urlsToCache);
-    })
+    caches.open(CACHE_NAME)
+      .then(cache => cache.addAll(urlsToCache))
   );
+  self.skipWaiting();
 });
 
 // Aktivierung – alte Caches löschen
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(keys => 
+    caches.keys().then(keys =>
       Promise.all(
         keys.map(key => {
           if (key !== CACHE_NAME) {
@@ -38,13 +34,15 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Abfangen von Fetch-Anfragen
+// Abruf – Cache zuerst, dann Netzwerk
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request).then(response =>
-      response || fetch(event.request).catch(() => caches.match(OFFLINE_URL))
-    )
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request).catch(() => {
+        // return caches.match('./offline.html'); // Nur aktivieren, wenn du die Datei hast
+      });
+    })
   );
 });

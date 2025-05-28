@@ -2,8 +2,9 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <meta name="theme-color" content="#f4c430" />
+  <link rel="manifest" href="site.webmanifest" />
   <title>EHRENZERTIFIKAT</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
   <style>
@@ -11,29 +12,23 @@
       --gold: #f4c430;
     }
 
-    html {
+    html, body {
       width: 100%;
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
-      text-size-adjust: 100%;
-    }
-
-    body {
-      margin: 0;
-      width: 100%;
-      font-family: Georgia, serif;
-      background: #121212;
-      color: #fdfdfd;
-      font-size: 1rem;
-      line-height: 1.8;
-      padding: 1.5rem;
-      box-sizing: border-box;
+      max-width: 100vw;
       overflow-x: hidden;
     }
 
     * {
-      box-sizing: inherit;
-      max-width: 100vw;
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, serif;
+      background: #121212;
+      color: #fdfdfd;
+      padding: 1.5rem;
+      line-height: 1.8;
     }
 
     main[role="document"] {
@@ -55,7 +50,7 @@
 
     h1 {
       text-align: center;
-      font-size: clamp(2rem, 5vw, 2.4rem);
+      font-size: 2.4rem;
       color: var(--gold);
       margin-bottom: 2.5rem;
       letter-spacing: 1px;

@@ -1,14 +1,14 @@
 {
   "name": "VIRENNA Ehrenzertifikat",
   "short_name": "Zertifikat",
-  "description": "Ein Ehrenzertifikat f\u00fcr Mama \u2013 mit W\u00fcrde, Liebe und Hoffnung.",
   "lang": "de",
+  "description": "Ein Ehrenzertifikat für Mama – mit Würde, Liebe und Hoffnung.",
   "start_url": "index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#111111",
-  "theme_color": "#d4af37",
+  "background_color": "#121212",
+  "theme_color": "#f4c430",
   "icons": [
     {
       "src": "favicon-32x32.png",

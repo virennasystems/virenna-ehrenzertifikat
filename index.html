@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#f4c430" />
   <meta name="description" content="Ein Ehrenzertifikat für Mama – mit Würde, Liebe und Hoffnung." />
+  <meta name="theme-color" content="#f4c430" />
   <title>EHRENZERTIFIKAT</title>
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
   <link rel="manifest" href="site.webmanifest" />
-
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <style>
     :root {
       --gold: #f4c430;
@@ -16,18 +16,20 @@
 
     body {
       margin: 0;
-      padding: 2rem 1rem;
       font-family: Georgia, serif;
       background: #121212;
       color: #fdfdfd;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       line-height: 1.8;
     }
 
     main[role="document"] {
-      max-width: 680px;
-      margin: 3rem auto;
-      padding: 3rem 2rem;
       border: 4px solid var(--gold);
+      padding: 50px 40px;
+      max-width: 650px;
       background: #1b1b1b;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
@@ -81,17 +83,6 @@
       border: 0;
     }
 
-    @media (max-width: 600px) {
-      main[role="document"] {
-        padding: 2rem 1.5rem;
-        margin: 2rem 1rem;
-      }
-
-      h1 {
-        font-size: 2rem;
-      }
-    }
-
     @media print {
       @page {
         margin: 2cm;
@@ -115,8 +106,9 @@
   </style>
 </head>
 <body>
-  <main role="document" aria-label="Ehrenzertifikat">
-    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" loading="lazy" />
+  <a href="#zertifikat" class="sr-only">Zum Ehrenzertifikat springen</a>
+  <main id="zertifikat" role="document" aria-label="Ehrenzertifikat">
+    <img src="VIRENNA_Siegel.PNG" alt="VIRENNA Siegel" class="seal" loading="lazy" />
 
     <h1>EHRENZERTIFIKAT</h1>
 

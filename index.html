@@ -8,29 +8,26 @@
   <meta name="keywords" content="Zertifikat, Ehrenurkunde, Dankbarkeit, Virenna, PWA, offline, Geschenk, Mama">
   <meta name="author" content="Virenna Systems">
 
-  <!-- OpenGraph für Teilen -->
+  <!-- OpenGraph -->
   <meta property="og:title" content="Ehrenzertifikat für Mama" />
   <meta property="og:description" content="Danke sagen – digital & stilvoll. Dieses Ehrenzertifikat ist ein Zeichen für Mut, Geduld und Liebe." />
   <meta property="og:image" content="https://virennasystems.github.io/virenna-ehrenzertifkat/VIRENNA_Siegel.PNG" />
   <meta property="og:url" content="https://virennasystems.github.io/virenna-ehrenzertifkat/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <!-- PWA + iOS -->
+  <!-- PWA & Icons -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="manifest" href="manifest.webmanifest" />
-  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
   <title>EHRENZERTIFIKAT</title>
 
   <style>
-    :root {
-      --gold: #f4c430;
-    }
+    :root { --gold: #f4c430; }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -78,14 +75,9 @@
       letter-spacing: 1px;
     }
 
-    p {
-      margin: 1.2rem 0;
-    }
+    p { margin: 1.2rem 0; }
 
-    .highlight {
-      color: var(--gold);
-      font-weight: bold;
-    }
+    .highlight { color: var(--gold); font-weight: bold; }
 
     .heart {
       color: var(--gold);
@@ -113,10 +105,7 @@
     }
 
     @media print {
-      @page {
-        margin: 2cm;
-        size: A4 portrait;
-      }
+      @page { margin: 2cm; size: A4 portrait; }
 
       body {
         background: white;
@@ -134,7 +123,6 @@
     }
   </style>
 
-  <!-- Service Worker Registration + Update-Banner -->
   <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js').then(reg => {
@@ -157,7 +145,7 @@
                 box-shadow: 0 0 8px rgba(0,0,0,0.3);
                 z-index: 9999;
               `;
-              banner.textContent = 'Update verfügbar – tippen zum Aktualisieren';
+              banner.textContent = 'Update verfügbar – tippe zum Aktualisieren';
               banner.onclick = () => location.reload();
               document.body.appendChild(banner);
             }

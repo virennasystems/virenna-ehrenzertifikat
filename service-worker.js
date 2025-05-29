@@ -1,15 +1,16 @@
-const CACHE_NAME = 'ehrenzertifikat-v1';
+const CACHE_NAME = 'ehrenzertifikat-v2';
+
 const urlsToCache = [
   './',
   './index.html',
   './favicon-32x32.png',
   './apple-touch-icon.png',
-  './site.webmanifest',
   './VIRENNA_Siegel.PNG',
-  './offline.html' // Optional – offline fallback Seite, falls vorhanden
+  './manifest.json',
+  './offline.html'
 ];
 
-// Installation – Assets cachen
+// INSTALLATION – Ressourcen im Cache speichern
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
@@ -19,7 +20,7 @@ self.addEventListener('install', event => {
   self.skipWaiting();
 });
 
-// Aktivierung – alte Caches löschen
+// AKTIVIERUNG – alte Caches entfernen
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
@@ -35,13 +36,18 @@ self.addEventListener('activate', event => {
   self.clients.claim();
 });
 
-// Anfragen abfangen – Cache zuerst, dann Netzwerk
+// FETCH – Ressourcen zuerst aus Cache laden, sonst aus dem Netz
 self.addEventListener('fetch', event => {
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-      .catch(() => caches.match('./offline.html')) // Optionaler Offline-Fallback
+    caches.match(event.request).then(cachedResponse => {
+      return (
+        cachedResponse ||
+        fetch(event.request).catch(() =>
+          caches.match('./offline.html')
+        )
+      );
+    })
   );
 });

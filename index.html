@@ -2,43 +2,45 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, user-scalable=yes" />
   <meta name="theme-color" content="#f4c430" />
   <title>EHRENZERTIFIKAT</title>
-  <link rel="icon" href="favicon-32x32.png" type="image/png" />
   <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <style>
     :root {
       --gold: #f4c430;
     }
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
-
     html, body {
-      margin: 0;
-      padding: 0;
       width: 100%;
+      max-width: 100vw;
       overflow-x: hidden;
     }
 
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
       font-family: Georgia, serif;
       background: #121212;
       color: #fdfdfd;
+      padding: 1.5rem;
       line-height: 1.8;
-      padding: 1.5rem 0;
     }
 
     main[role="document"] {
-      width: 100%;
       max-width: 650px;
       margin: auto;
-      padding: 2rem 1rem;
       background: #1b1b1b;
       border: 4px solid var(--gold);
+      padding: 50px 40px;
       box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      overflow-wrap: break-word;
+      word-wrap: break-word;
     }
 
     .seal {
@@ -46,7 +48,6 @@
       margin: 0 auto 2rem;
       width: 180px;
       max-width: 100%;
-      height: auto;
       box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
     }
 
@@ -161,5 +162,13 @@
 
     <div class="signature">In Liebe,<br />Tobi</div>
   </main>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('[ServiceWorker] Registriert:', reg))
+        .catch(err => console.warn('[ServiceWorker] Fehler:', err));
+    }
+  </script>
 </body>
 </html>

@@ -2,51 +2,71 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
   <meta name="theme-color" content="#f4c430" />
-  <title>EHRENZERTIFIKAT</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <meta name="description" content="Ein Ehrenzertifikat für echte Helden des Alltags – digital, druckbar, offline verfügbar.">
+  <meta name="keywords" content="Zertifikat, Ehrenurkunde, Dankbarkeit, Virenna, PWA, offline, Geschenk, Mama">
+  <meta name="author" content="Virenna Systems">
+
+  <!-- OpenGraph für Teilen -->
+  <meta property="og:title" content="Ehrenzertifikat für Mama" />
+  <meta property="og:description" content="Danke sagen – digital & stilvoll. Dieses Ehrenzertifikat ist ein Zeichen für Mut, Geduld und Liebe." />
+  <meta property="og:image" content="https://virennasystems.github.io/virenna-ehrenzertifikat/VIRENNA_Siegel.PNG" />
+  <meta property="og:url" content="https://virennasystems.github.io/virenna-ehrenzertifikat/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- iOS/PWA Meta -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <title>EHRENZERTIFIKAT</title>
+
   <style>
     :root {
       --gold: #f4c430;
-    }
-
-    html, body {
-      width: 100%;
-      overflow-x: hidden;
-      -webkit-text-size-adjust: 100%;
     }
 
     * {
       box-sizing: border-box;
     }
 
-    body {
+    html, body {
       margin: 0;
-      font-family: Georgia, serif;
+      padding: 0;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: clip;
+      overscroll-behavior-x: contain;
+      touch-action: manipulation;
       background: #121212;
       color: #fdfdfd;
-      padding: 1.5rem;
+      font-family: Georgia, serif;
+    }
+
+    body {
+      padding: 4vw;
       line-height: 1.8;
     }
 
     main[role="document"] {
       width: 100%;
-      max-width: 650px;
+      max-width: min(100vw, 650px);
       margin: auto;
       background: #1b1b1b;
-      border: 4px solid var(--gold);
-      padding: 3rem 1.2rem;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      border: 0.8vw solid var(--gold);
+      padding: 6vw;
+      box-shadow: 0 0 3vw rgba(0, 0, 0, 0.4);
+      contain: layout style;
     }
 
     .seal {
       display: block;
       margin: 0 auto 2rem;
-      width: 180px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 180px;
+      height: auto;
       box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
     }
 
@@ -113,7 +133,41 @@
       }
     }
   </style>
+
+  <!-- Service Worker + Update-Banner -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').then(reg => {
+        console.log('✅ Service Worker registriert:', reg);
+        reg.onupdatefound = () => {
+          const newWorker = reg.installing;
+          newWorker.onstatechange = () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              const banner = document.createElement('div');
+              banner.style.cssText = `
+                position: fixed;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #f4c430;
+                color: #121212;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                font-weight: bold;
+                box-shadow: 0 0 8px rgba(0,0,0,0.3);
+                z-index: 9999;
+              `;
+              banner.textContent = 'Update verfügbar – tippe zum Aktualisieren';
+              banner.onclick = () => location.reload();
+              document.body.appendChild(banner);
+            }
+          };
+        };
+      }).catch(err => console.error('❌ SW Fehler:', err));
+    }
+  </script>
 </head>
+
 <body>
   <main role="document" aria-label="Ehrenzertifikat">
     <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />

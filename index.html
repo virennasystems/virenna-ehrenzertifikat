@@ -4,21 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f4c430" />
+  <title>EHRENZERTIFIKAT</title>
   <link rel="manifest" href="site.webmanifest" />
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
-  <title>EHRENZERTIFIKAT</title>
 
   <style>
-    :root { --gold: #f4c430; }
+    :root {
+      --gold: #f4c430;
+      --bg: #121212;
+      --panel: #1b1b1b;
+    }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
       padding: 0;
-      background: #121212;
-      color: #fdfdfd;
       font-family: Georgia, serif;
+      background: var(--bg);
+      color: #fdfdfd;
       overflow-x: hidden;
     }
 
@@ -26,12 +32,11 @@
       padding: 5vw;
     }
 
-    main[role="document"] {
+    main {
       max-width: 680px;
       margin: auto;
-      background: #1b1b1b;
+      background: var(--panel);
       padding: 6vw;
-      box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.4);
       border-radius: 0.5rem;
     }
 
@@ -41,21 +46,21 @@
       align-items: center;
       padding: 1.5rem;
       margin-bottom: 2rem;
-      background: #1b1b1b;
       border-radius: 1rem;
-      box-shadow: 0 0 18px 6px rgba(244, 196, 48, 0.25);
+      background: var(--panel);
+      box-shadow: 0 0 25px 5px rgba(244, 196, 48, 0.3);
     }
 
     .seal-box img {
-      max-width: 160px;
+      width: 150px;
       height: auto;
     }
 
     h1 {
       text-align: center;
-      font-size: 2.3rem;
       color: var(--gold);
-      margin: 1rem 0 2rem;
+      font-size: clamp(1.6rem, 6vw, 2.4rem);
+      margin-bottom: 2rem;
     }
 
     p {
@@ -69,7 +74,7 @@
 
     .heart {
       color: var(--gold);
-      font-size: 2em;
+      font-size: 2rem;
       vertical-align: middle;
       margin-left: 0.3em;
     }
@@ -81,34 +86,18 @@
       margin-top: 3rem;
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
-    }
-
     @media print {
-      @page {
-        margin: 2cm;
-        size: A4 portrait;
-      }
-
       body {
         background: white;
         color: black;
       }
 
-      .highlight, .heart, .signature {
-        color: black !important;
+      .seal-box {
+        box-shadow: none;
       }
 
-      .seal-box {
-        box-shadow: none !important;
+      .highlight, .heart, .signature {
+        color: black !important;
       }
     }
   </style>
@@ -117,67 +106,47 @@
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker.register('service-worker.js')
-          .then(() => console.log("✅ Service Worker registriert"))
-          .catch(e => console.error("❌ Service Worker Fehler", e));
+          .then(() => console.log('✅ Service Worker registriert'))
+          .catch(err => console.error('❌ SW Fehler:', err));
       });
     }
   </script>
 </head>
-
 <body>
-  <main role="document" aria-label="Ehrenzertifikat">
-
+  <main role="document">
     <div class="seal-box">
-      <img src="VIRENNA_Siegel.PNG" alt="Siegel">
+      <img src="VIRENNA_Siegel.PNG" alt="Siegel" />
     </div>
 
     <h1>EHRENZERTIFIKAT</h1>
 
     <p><span class="highlight">Mama,</span></p>
-    <p>
-      In Zeiten körperlicher Schwäche und<br />
-      geistiger Erschöpfung<br />
-      bist du da – ohne zu zögern, ohne Fragen,<br />
-      ohne dich abzuwenden.
-    </p>
+    <p>In Zeiten körperlicher Schwäche und<br>
+       geistiger Erschöpfung<br>
+       bist du da – ohne zu zögern, ohne Fragen,<br>
+       ohne dich abzuwenden.</p>
 
-    <p class="highlight">
-      Mit Mut, mit Würde, mit einem Herzen voller Geduld.
-    </p>
+    <p class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
 
-    <p>
-      Dieses Siegel steht nicht für ein Ziel –<br />
-      sondern für deine tägliche Begleitung –<br />
-      spürbar, auch ohne Schritte.
-    </p>
+    <p>Dieses Siegel steht nicht für ein Ziel –<br>
+       sondern für deine tägliche Begleitung –<br>
+       spürbar, auch ohne Schritte.</p>
 
-    <p class="highlight">
-      Es ehrt dich – deine tägliche Stärke,
-    </p>
+    <p class="highlight">Es ehrt dich – deine tägliche Stärke,</p>
 
-    <p>
-      deine Klarheit, deine stille Präsenz,<br />
-      deinen Einsatz, der so vieles möglich macht.
-    </p>
+    <p>deine Klarheit, deine stille Präsenz,<br>
+       deinen Einsatz, der so vieles möglich macht.</p>
 
     <p>Du bist nicht nur Begleitung.</p>
 
-    <p class="highlight">
-      Du bist das Fundament, auf dem ich stehen kann –
-    </p>
+    <p class="highlight">Du bist das Fundament, auf dem ich stehen kann –</p>
 
-    <p>
-      und auf dem auch anderes wachsen konnte,<br />
-      wie zum Beispiel <span class="highlight">VIRENNA</span>.
-    </p>
+    <p>und auf dem auch anderes wachsen konnte,<br>
+       wie zum Beispiel <span class="highlight">VIRENNA</span>.</p>
 
-    <p class="highlight">
-      Danke. <span class="heart">♥</span>
-      <span class="sr-only">Symbol für Liebe</span>
-    </p>
+    <p class="highlight">Danke.<span class="heart">♥</span></p>
 
     <p class="signature">In Liebe,<br />Tobi</p>
-
   </main>
 </body>
 </html>

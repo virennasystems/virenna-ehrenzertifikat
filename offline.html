@@ -2,49 +2,31 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Offline</title>
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      max-width: 100vw;
-      overflow-x: clip;
-      font-family: Georgia, serif;
+    body {
+      font-family: sans-serif;
       background: #121212;
       color: #fdfdfd;
       display: flex;
       align-items: center;
       justify-content: center;
-      height: 100vh;
       text-align: center;
-      box-sizing: border-box;
+      height: 100vh;
+      margin: 0;
       padding: 2rem;
     }
-
-    .wrapper {
-      max-width: 500px;
-      border: 0.5vw dashed #f4c430;
-      padding: 2rem;
-      box-shadow: 0 0 1vw rgba(244, 196, 48, 0.3);
-    }
-
     h1 {
       color: #f4c430;
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      line-height: 1.6;
+      font-size: 2rem;
     }
   </style>
 </head>
 <body>
-  <div class="wrapper">
+  <main>
     <h1>Du bist offline</h1>
-    <p>Dieses Ehrenzertifikat ist gerade nicht verfügbar.<br>Bitte verbinde dich mit dem Internet.</p>
-  </div>
+    <p>Keine Internetverbindung verfügbar.<br>Bitte später erneut versuchen.</p>
+  </main>
 </body>
 </html>

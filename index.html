@@ -2,67 +2,65 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <meta name="theme-color" content="#f4c430" />
   <meta name="description" content="Ein Ehrenzertifikat für echte Helden des Alltags – digital, druckbar, offline verfügbar.">
   <meta name="keywords" content="Zertifikat, Ehrenurkunde, Dankbarkeit, Virenna, PWA, offline, Geschenk, Mama">
   <meta name="author" content="Virenna Systems">
-
-  <!-- OpenGraph -->
-  <meta property="og:title" content="Ehrenzertifikat für Mama" />
-  <meta property="og:description" content="Danke sagen – digital & stilvoll. Dieses Ehrenzertifikat ist ein Zeichen für Mut, Geduld und Liebe." />
-  <meta property="og:image" content="https://virennasystems.github.io/virenna-ehrenzertifkat/VIRENNA_Siegel.PNG" />
-  <meta property="og:url" content="https://virennasystems.github.io/virenna-ehrenzertifkat/" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- PWA & Icons -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  
+  <!-- Icons & Manifest -->
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <link rel="manifest" href="site.webmanifest" />
+  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+
   <title>EHRENZERTIFIKAT</title>
 
   <style>
-    :root { --gold: #f4c430; }
+    :root {
+      --gold: #f4c430;
+    }
 
-    * { box-sizing: border-box; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       max-width: 100vw;
-      overflow-x: clip;
+      overflow-x: hidden;
       background: #121212;
       color: #fdfdfd;
       font-family: Georgia, serif;
-      overscroll-behavior-x: contain;
-      touch-action: manipulation;
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
     }
 
     body {
-      padding: 4vw;
-      line-height: 1.8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
     }
 
     main[role="document"] {
       width: 100%;
-      max-width: min(100vw, 650px);
-      margin: auto;
+      max-width: 650px;
       background: #1b1b1b;
-      border: 0.8vw solid var(--gold);
-      padding: 6vw;
-      box-shadow: 0 0 3vw rgba(0, 0, 0, 0.4);
-      contain: layout style;
+      border: 4px solid var(--gold);
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
     .seal {
       display: block;
       margin: 0 auto 2rem;
-      width: 100%;
-      max-width: 180px;
+      width: 180px;
+      max-width: 100%;
       height: auto;
       box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
     }
@@ -75,9 +73,14 @@
       letter-spacing: 1px;
     }
 
-    p { margin: 1.2rem 0; }
+    p {
+      margin: 1.2rem 0;
+    }
 
-    .highlight { color: var(--gold); font-weight: bold; }
+    .highlight {
+      color: var(--gold);
+      font-weight: bold;
+    }
 
     .heart {
       color: var(--gold);
@@ -105,7 +108,10 @@
     }
 
     @media print {
-      @page { margin: 2cm; size: A4 portrait; }
+      @page {
+        margin: 2cm;
+        size: A4 portrait;
+      }
 
       body {
         background: white;
@@ -122,38 +128,6 @@
       }
     }
   </style>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js').then(reg => {
-        console.log('✅ Service Worker registriert:', reg);
-        reg.onupdatefound = () => {
-          const newWorker = reg.installing;
-          newWorker.onstatechange = () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              const banner = document.createElement('div');
-              banner.style.cssText = `
-                position: fixed;
-                bottom: 1rem;
-                left: 50%;
-                transform: translateX(-50%);
-                background: #f4c430;
-                color: #121212;
-                padding: 1rem 1.5rem;
-                border-radius: 8px;
-                font-weight: bold;
-                box-shadow: 0 0 8px rgba(0,0,0,0.3);
-                z-index: 9999;
-              `;
-              banner.textContent = 'Update verfügbar – tippe zum Aktualisieren';
-              banner.onclick = () => location.reload();
-              document.body.appendChild(banner);
-            }
-          };
-        };
-      }).catch(err => console.error('❌ SW Fehler:', err));
-    }
-  </script>
 </head>
 
 <body>

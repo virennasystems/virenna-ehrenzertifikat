@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f4c430" />
-  <meta name="description" content="Ein Ehrenzertifikat für echte Helden des Alltags – digital, druckbar, offline verfügbar.">
-  <meta name="author" content="Virenna Systems">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <title>EHRENZERTIFIKAT</title>
+
   <link rel="manifest" href="manifest.json" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
-  <title>Ehrenzertifikat</title>
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
   <style>
     :root { --gold: #f4c430; }
@@ -21,7 +22,7 @@
       padding: 0;
       background: #121212;
       color: #fdfdfd;
-      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      font-family: Georgia, serif;
       overflow-x: hidden;
     }
 
@@ -85,83 +86,64 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js').then(reg => {
-        console.log('✅ Service Worker registriert:', reg);
-        reg.onupdatefound = () => {
-          const newWorker = reg.installing;
-          newWorker.onstatechange = () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              const banner = document.createElement('div');
-              banner.textContent = '🔄 Neue Version verfügbar – Tippen zum Aktualisieren';
-              banner.style = `
-                position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
-                background: var(--gold); color: #121212; padding: 1rem 1.5rem;
-                border-radius: 8px; font-weight: bold; z-index: 9999;
-                box-shadow: 0 0 10px rgba(0,0,0,0.3); cursor: pointer;
-              `;
-              banner.onclick = () => location.reload();
-              document.body.appendChild(banner);
-            }
-          };
-        };
-      }).catch(err => console.error('❌ SW-Fehler:', err));
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registriert:', reg))
+        .catch(err => console.error('❌ Service Worker Fehler:', err));
     }
   </script>
 </head>
 <body>
 
-<main role="document">
+  <main role="document">
+    <header>
+      <img src="VIRENNA_Siegel.PNG" alt="Virenna-Siegel">
+      <h1 aria-label="Ehrenzertifikat">EHRENZERTIFIKAT</h1>
+    </header>
 
-  <header>
-    <img src="VIRENNA_Siegel.PNG" alt="Virenna-Siegel">
-    <h1 aria-label="Ehrenzertifikat">EHRENZERTIFIKAT</h1>
-  </header>
+    <p><span class="highlight">Mama,</span></p>
 
-  <p><span class="highlight">Mama,</span></p>
+    <p>
+      In Zeiten körperlicher Schwäche und<br />
+      geistiger Erschöpfung<br />
+      bist du da – ohne zu zögern, ohne Fragen,<br />
+      ohne dich abzuwenden.
+    </p>
 
-  <p>
-    In Zeiten körperlicher Schwäche und<br />
-    geistiger Erschöpfung<br />
-    bist du da – ohne zu zögern, ohne Fragen,<br />
-    ohne dich abzuwenden.
-  </p>
+    <p class="highlight">
+      Mit Mut, mit Würde, mit einem<br />
+      Herzen voller Geduld.
+    </p>
 
-  <p class="highlight">
-    Mit Mut, mit Würde, mit einem<br />
-    Herzen voller Geduld.
-  </p>
+    <p>
+      Dieses Siegel steht nicht für ein Ziel –<br />
+      sondern für deine tägliche Begleitung –<br />
+      spürbar, auch ohne Schritte.
+    </p>
 
-  <p>
-    Dieses Siegel steht nicht für ein Ziel –<br />
-    sondern für deine tägliche Begleitung –<br />
-    spürbar, auch ohne Schritte.
-  </p>
+    <p class="highlight">
+      Es ehrt dich – deine tägliche Stärke,
+    </p>
 
-  <p class="highlight">
-    Es ehrt dich – deine tägliche Stärke,
-  </p>
+    <p>
+      deine Klarheit, deine stille Präsenz,<br />
+      deinen Einsatz, der so vieles möglich macht.
+    </p>
 
-  <p>
-    deine Klarheit, deine stille Präsenz,<br />
-    deinen Einsatz, der so vieles möglich macht.
-  </p>
+    <p>Du bist nicht nur Begleitung.</p>
 
-  <p>Du bist nicht nur Begleitung.</p>
+    <p class="highlight">
+      Du bist das Fundament, auf dem ich stehen kann –
+    </p>
 
-  <p class="highlight">
-    Du bist das Fundament, auf dem ich stehen kann –
-  </p>
+    <p>
+      und auf dem auch anderes wachsen konnte,<br />
+      wie zum Beispiel <span class="highlight">VIRENNA</span>.
+    </p>
 
-  <p>
-    und auf dem auch anderes wachsen konnte,<br />
-    wie zum Beispiel <span class="highlight">VIRENNA</span>.
-  </p>
+    <p class="highlight">Danke.<span class="heart">♥</span></p>
 
-  <p class="highlight">Danke.<span class="heart">♥</span></p>
-
-  <p class="signature">In Liebe,<br />Tobi</p>
-
-</main>
+    <p class="signature">In Liebe,<br />Tobi</p>
+  </main>
 
 </body>
 </html>

@@ -5,64 +5,62 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f4c430" />
   <title>EHRENZERTIFIKAT</title>
-
   <link rel="manifest" href="site.webmanifest" />
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
-
   <style>
     :root {
       --gold: #f4c430;
-      --background: #121212;
-      --foreground: #1b1b1b;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--background);
+      background: #121212;
       color: #fdfdfd;
       font-family: Georgia, serif;
-      overflow-x: hidden;
     }
 
     body {
-      padding: 0 1.5rem;
+      padding: 1.5rem;
     }
 
     main[role="document"] {
       max-width: 680px;
-      margin: 5vh auto;
-      background: var(--foreground);
-      border: 4px solid var(--gold);
+      margin: 0 auto;
+      background: #1b1b1b;
       padding: 2rem;
-      box-shadow: 0 0 15px rgba(244, 196, 48, 0.2);
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     }
 
-    .seal-wrapper {
-      background: var(--foreground);
+    .seal-container {
+      background: #1b1b1b;
       border-radius: 1rem;
       padding: 1rem;
-      margin: 2rem auto 1.5rem;
-      box-shadow: 0 0 12px rgba(244, 196, 48, 0.35); /* << Glow exakt angepasst */
+      margin: 0 auto 2rem;
+      max-width: 300px;
+      box-shadow: 0 0 12px rgba(244, 196, 48, 0.25);
       display: flex;
       justify-content: center;
-      max-width: 400px;
     }
 
-    .seal {
-      width: 160px;
-      max-width: 100%;
+    .seal-container img {
+      width: 100%;
       height: auto;
+      display: block;
     }
 
     h1 {
       text-align: center;
-      font-size: 2rem;
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
       color: var(--gold);
+      margin-top: 0;
       margin-bottom: 2rem;
-      letter-spacing: 1px;
+      word-break: break-word;
     }
 
     p {
@@ -74,6 +72,12 @@
       font-weight: bold;
     }
 
+    .heart {
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-left: 0.3rem;
+    }
+
     .signature {
       text-align: right;
       font-style: italic;
@@ -81,44 +85,19 @@
       margin-top: 3rem;
     }
 
-    .heart {
-      font-size: 1.5rem;
-      color: var(--gold);
-      vertical-align: middle;
-      margin-left: 0.3rem;
-    }
-
-    @media print {
-      body {
-        background: white;
-        color: black;
-      }
-
+    @media (max-width: 480px) {
       main[role="document"] {
-        border: none;
-        box-shadow: none;
-      }
-
-      .highlight, .heart, .signature {
-        color: black;
+        padding: 1.5rem;
       }
     }
   </style>
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-      });
-    }
-  </script>
 </head>
 <body>
 
 <main role="document" aria-label="Ehrenzertifikat">
 
-  <div class="seal-wrapper">
-    <img src="VIRENNA_Siegel.PNG" alt="Virenna Siegel" class="seal" />
+  <div class="seal-container">
+    <img src="VIRENNA_Siegel.PNG" alt="Siegel" />
   </div>
 
   <h1>EHRENZERTIFIKAT</h1>
@@ -133,8 +112,7 @@
   </p>
 
   <p class="highlight">
-    Mit Mut, mit Würde, mit einem<br />
-    Herzen voller Geduld.
+    Mit Mut, mit Würde, mit einem Herzen voller Geduld.
   </p>
 
   <p>
@@ -143,7 +121,9 @@
     spürbar, auch ohne Schritte.
   </p>
 
-  <p class="highlight">Es ehrt dich – deine tägliche Stärke,</p>
+  <p class="highlight">
+    Es ehrt dich – deine tägliche Stärke,
+  </p>
 
   <p>
     deine Klarheit, deine stille Präsenz,<br />
@@ -158,12 +138,12 @@
 
   <p>
     und auf dem auch anderes wachsen konnte,<br />
-    wie zum Beispiel <span class="highlight">VIRENNA</span>.
+    wie zum Beispiel <span class="highlight">VIRENNA.</span>
   </p>
 
-  <p class="highlight">Danke. <span class="heart">♥</span></p>
+  <p class="highlight">Danke.<span class="heart">♥</span></p>
 
-  <p class="signature">In Liebe,<br />Tobi</p>
+  <div class="signature">In Liebe,<br />Tobi</div>
 
 </main>
 

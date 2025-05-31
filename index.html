@@ -4,10 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f4c430" />
-  <title>Ehrenzertifikat</title>
+  <title>EHRENZERTIFIKAT</title>
+
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
   <style>
     :root { --gold: #f4c430; }
 
@@ -16,6 +18,7 @@
     html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
       background: #121212;
       color: #fdfdfd;
       font-family: Georgia, serif;
@@ -23,36 +26,41 @@
     }
 
     body {
-      padding: 6vw 5vw 10vw;
+      padding: 5vw;
     }
 
     main[role="document"] {
-      max-width: 680px;
-      margin: 0 auto;
+      max-width: 650px;
+      margin: auto;
+      background: #1b1b1b;
+      padding: 2rem;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+      border-radius: 12px;
     }
 
     .seal-box {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
       padding: 2rem;
       border-radius: 16px;
       background: #1b1b1b;
-      box-shadow: 0 0 40px rgba(244, 196, 48, 0.6);
+      box-shadow: 0 0 18px rgba(244, 196, 48, 0.35);
     }
 
     .seal-box img {
-      width: 180px;
-      max-width: 100%;
+      width: 160px;
       height: auto;
+      display: block;
     }
 
     h1 {
-      font-size: clamp(1.8rem, 6vw, 2.4rem);
-      color: var(--gold);
       text-align: center;
-      margin-bottom: 2.2rem;
+      font-size: 2.2rem;
+      color: var(--gold);
+      margin-bottom: 2rem;
+      letter-spacing: 0.5px;
     }
 
     p { margin: 1.2rem 0; }
@@ -63,8 +71,8 @@
     }
 
     .heart {
-      font-size: 1.6rem;
       color: var(--gold);
+      font-size: 1.6rem;
       vertical-align: middle;
       margin-left: 0.3em;
     }
@@ -89,18 +97,23 @@
 
     @media print {
       body { background: white; color: black; }
-      .seal-box { box-shadow: none; }
-      .highlight, .signature, .heart { color: black; }
+      main { box-shadow: none; border: none; }
+      .highlight, .heart, .signature { color: black; }
     }
   </style>
+
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js');
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('✅ Service Worker aktiv.'))
+          .catch(err => console.error('❌ SW-Fehler:', err));
+      });
     }
   </script>
 </head>
-<body>
 
+<body>
   <main role="document" aria-label="Ehrenzertifikat">
 
     <div class="seal-box">
@@ -123,17 +136,14 @@
       Herzen voller Geduld.
     </p>
 
-    <p>
-      Dieses Siegel steht nicht für ein Ziel –<br />
-      sondern für deine tägliche Begleitung –<br />
-      spürbar, auch ohne Schritte.
-    </p>
+    <p>Dieses Siegel steht nicht für ein Ziel –</p>
 
     <p class="highlight">
-      Es ehrt dich – deine tägliche Stärke,
+      sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.
     </p>
 
     <p>
+      <span class="highlight">Es ehrt dich – deine tägliche Stärke,</span><br />
       deine Klarheit, deine stille Präsenz,<br />
       deinen Einsatz, der so vieles möglich macht.
     </p>
@@ -154,9 +164,8 @@
       <span class="sr-only">Symbol für Liebe</span>
     </p>
 
-    <p class="signature">In Liebe,<br />Tobi</p>
+    <div class="signature">In Liebe,<br />Tobi</div>
 
   </main>
-
 </body>
 </html>

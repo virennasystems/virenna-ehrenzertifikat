@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f4c430" />
-  <title>Ehrenzertifikat</title>
-
-  <!-- Manifest & Icons -->
+  <meta name="description" content="Ehrenzertifikat für echte Heldinnen – offline, druckbar, mit Stil.">
+  <meta name="keywords" content="Zertifikat, Ehrenurkunde, Dankbarkeit, Virenna, Mama, Geschenk">
+  <meta name="author" content="Virenna Systems">
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-
+  <title>EHRENZERTIFIKAT</title>
   <style>
     :root { --gold: #f4c430; }
 
@@ -39,32 +39,34 @@
       box-shadow: 0 0 1.5vw rgba(244, 196, 48, 0.35);
     }
 
-    header {
-      text-align: center;
+    .siegel-container {
+      display: flex;
+      justify-content: center;
       margin-bottom: 2rem;
+      padding: 1rem;
+      border: 4px solid var(--gold);
+      border-radius: 12px;
+      box-shadow: 0 0 40px rgba(244, 196, 48, 0.5);
+      background-color: #1b1b1b;
+      max-width: 280px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    .siegel-wrapper {
-      display: inline-block;
-      padding: 12px;
-      border: 3px solid var(--gold);
-      border-radius: 8px;
-      box-shadow: 0 0 25px rgba(244, 196, 48, 0.6);
-      margin-bottom: 1rem;
-    }
-
-    header img {
-      width: 180px;
-      height: auto;
+    .seal {
       display: block;
+      width: 100%;
+      max-width: 180px;
+      height: auto;
     }
 
     h1 {
       font-size: clamp(1.6rem, 6vw, 2.2rem);
       color: var(--gold);
       letter-spacing: 0.5px;
-      line-height: 1.2;
-      margin: 0;
+      text-align: center;
+      margin-top: 0;
+      margin-bottom: 2rem;
     }
 
     p {
@@ -92,73 +94,69 @@
     }
   </style>
 
-  <!-- Service Worker -->
   <script>
     if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.register('service-worker.js').then(reg => {
-        console.log('✅ Service Worker registriert:', reg);
-      }).catch(err => {
-        console.error('❌ Service Worker Fehler:', err);
-      });
+      navigator.serviceWorker.register('service-worker.js')
+        .then(reg => console.log('✅ Service Worker registriert:', reg))
+        .catch(err => console.error('❌ Fehler beim Registrieren:', err));
     }
   </script>
 </head>
 <body>
+  <main role="document" aria-label="Ehrenzertifikat">
 
-<main role="document">
-  <header>
-    <div class="siegel-wrapper">
-      <img src="VIRENNA_Siegel.PNG" alt="Virenna-Siegel" />
+    <div class="siegel-container">
+      <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
     </div>
-    <h1 aria-label="Ehrenzertifikat">EHRENZERTIFIKAT</h1>
-  </header>
 
-  <p><span class="highlight">Mama,</span></p>
+    <h1>EHRENZERTIFIKAT</h1>
 
-  <p>
-    In Zeiten körperlicher Schwäche und<br />
-    geistiger Erschöpfung<br />
-    bist du da – ohne zu zögern, ohne Fragen,<br />
-    ohne dich abzuwenden.
-  </p>
+    <p><span class="highlight">Mama,</span></p>
 
-  <p class="highlight">
-    Mit Mut, mit Würde, mit einem<br />
-    Herzen voller Geduld.
-  </p>
+    <p>
+      In Zeiten körperlicher Schwäche und<br />
+      geistiger Erschöpfung<br />
+      bist du da – ohne zu zögern, ohne Fragen,<br />
+      ohne dich abzuwenden.
+    </p>
 
-  <p>
-    Dieses Siegel steht nicht für ein Ziel –<br />
-    sondern für deine tägliche Begleitung –<br />
-    spürbar, auch ohne Schritte.
-  </p>
+    <p class="highlight">
+      Mit Mut, mit Würde, mit einem<br />
+      Herzen voller Geduld.
+    </p>
 
-  <p class="highlight">
-    Es ehrt dich – deine tägliche Stärke,
-  </p>
+    <p>
+      Dieses Siegel steht nicht für ein Ziel –<br />
+      sondern für deine tägliche Begleitung –<br />
+      spürbar, auch ohne Schritte.
+    </p>
 
-  <p>
-    deine Klarheit, deine stille Präsenz,<br />
-    deinen Einsatz, der so vieles möglich macht.
-  </p>
+    <p class="highlight">
+      Es ehrt dich – deine tägliche Stärke,
+    </p>
 
-  <p>Du bist nicht nur Begleitung.</p>
+    <p>
+      deine Klarheit, deine stille Präsenz,<br />
+      deinen Einsatz, der so vieles möglich macht.
+    </p>
 
-  <p class="highlight">
-    Du bist das Fundament, auf dem ich stehen kann –
-  </p>
+    <p>Du bist nicht nur Begleitung.</p>
 
-  <p>
-    und auf dem auch anderes wachsen konnte,<br />
-    wie zum Beispiel <span class="highlight">VIRENNA</span>.
-  </p>
+    <p class="highlight">
+      Du bist das Fundament, auf dem ich stehen kann –
+    </p>
 
-  <p class="highlight">
-    Danke. <span class="heart">♥</span>
-  </p>
+    <p>
+      und auf dem auch anderes wachsen konnte,<br />
+      wie zum Beispiel <span class="highlight">VIRENNA</span>.
+    </p>
 
-  <p class="signature">In Liebe,<br />Tobi</p>
-</main>
+    <p class="highlight">
+      Danke.<span class="heart">♥</span>
+    </p>
 
+    <p class="signature">In Liebe,<br />Tobi</p>
+
+  </main>
 </body>
 </html>

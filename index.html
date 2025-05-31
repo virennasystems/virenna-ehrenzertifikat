@@ -4,59 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f4c430" />
-  <title>EHRENZERTIFIKAT</title>
-  <link rel="manifest" href="site.webmanifest" />
-  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <meta name="description" content="Ein Ehrenzertifikat für echte Helden des Alltags – digital, druckbar, offline verfügbar.">
+  <meta name="author" content="Virenna Systems">
+  <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" href="favicon-32x32.png" type="image/png" />
+  <title>Ehrenzertifikat</title>
+
   <style>
-    :root {
-      --gold: #f4c430;
-    }
+    :root { --gold: #f4c430; }
+
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      overflow-x: hidden;
       background: #121212;
       color: #fdfdfd;
-      font-family: Georgia, serif;
-    }
-
-    * {
-      box-sizing: border-box;
+      font-family: Georgia, Cambria, "Times New Roman", Times, serif;
+      overflow-x: hidden;
     }
 
     body {
-      padding: 4vw;
-      line-height: 1.8;
+      padding: 0 5vw;
     }
 
     main[role="document"] {
-      box-sizing: border-box;
-      width: 100%;
-      max-width: 100vw;
-      margin-inline: auto;
-      padding: max(4vw, 1rem);
+      margin: 5vh auto;
+      padding: 5vw;
+      padding-bottom: 10vw;
+      max-width: 680px;
       background: #1b1b1b;
-      border: max(1vw, 4px) solid var(--gold);
-      box-shadow: 0 0 max(2vw, 20px) rgba(0, 0, 0, 0.4);
+      border: 4px solid var(--gold);
+      box-shadow: 0 0 1.5vw rgba(244, 196, 48, 0.35);
     }
 
-    .seal {
-      display: block;
-      margin: 0 auto 2rem;
-      width: 180px;
-      max-width: 100%;
-      box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header img {
+      width: 100px;
+      margin-bottom: 1rem;
     }
 
     h1 {
-      text-align: center;
-      font-size: 2.4rem;
+      font-size: clamp(1.6rem, 6vw, 2.2rem);
       color: var(--gold);
-      margin-bottom: 2.5rem;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
+      line-height: 1.2;
+      text-align: center;
+      margin: 0;
     }
 
     p {
@@ -68,13 +67,6 @@
       font-weight: bold;
     }
 
-    .heart {
-      color: var(--gold);
-      font-size: 2em;
-      vertical-align: middle;
-      margin-left: 0.3em;
-    }
-
     .signature {
       text-align: right;
       font-style: italic;
@@ -82,37 +74,94 @@
       margin-top: 3rem;
     }
 
-    .sr-only {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      border: 0;
+    .heart {
+      font-size: 1.5rem;
+      color: var(--gold);
+      display: inline-block;
+      vertical-align: middle;
+      margin-left: 0.3rem;
     }
   </style>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js').then(reg => {
+        console.log('✅ Service Worker registriert:', reg);
+        reg.onupdatefound = () => {
+          const newWorker = reg.installing;
+          newWorker.onstatechange = () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              const banner = document.createElement('div');
+              banner.textContent = '🔄 Neue Version verfügbar – Tippen zum Aktualisieren';
+              banner.style = `
+                position: fixed; bottom: 1rem; left: 50%; transform: translateX(-50%);
+                background: var(--gold); color: #121212; padding: 1rem 1.5rem;
+                border-radius: 8px; font-weight: bold; z-index: 9999;
+                box-shadow: 0 0 10px rgba(0,0,0,0.3); cursor: pointer;
+              `;
+              banner.onclick = () => location.reload();
+              document.body.appendChild(banner);
+            }
+          };
+        };
+      }).catch(err => console.error('❌ SW-Fehler:', err));
+    }
+  </script>
 </head>
 <body>
-  <main role="document" aria-label="Ehrenzertifikat">
-    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
-    <h1>EHRENZERTIFIKAT</h1>
-    <p><span class="highlight">Mama,</span></p>
-    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
-    bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
-    <p class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
-    <p>Dieses Siegel steht nicht für ein Ziel –</p>
-    <p class="highlight">sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</p>
-    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
+
+<main role="document">
+
+  <header>
+    <img src="VIRENNA_Siegel.PNG" alt="Virenna-Siegel">
+    <h1 aria-label="Ehrenzertifikat">EHRENZERTIFIKAT</h1>
+  </header>
+
+  <p><span class="highlight">Mama,</span></p>
+
+  <p>
+    In Zeiten körperlicher Schwäche und<br />
+    geistiger Erschöpfung<br />
+    bist du da – ohne zu zögern, ohne Fragen,<br />
+    ohne dich abzuwenden.
+  </p>
+
+  <p class="highlight">
+    Mit Mut, mit Würde, mit einem<br />
+    Herzen voller Geduld.
+  </p>
+
+  <p>
+    Dieses Siegel steht nicht für ein Ziel –<br />
+    sondern für deine tägliche Begleitung –<br />
+    spürbar, auch ohne Schritte.
+  </p>
+
+  <p class="highlight">
+    Es ehrt dich – deine tägliche Stärke,
+  </p>
+
+  <p>
     deine Klarheit, deine stille Präsenz,<br />
-    deinen Einsatz, der so vieles möglich macht.</p>
-    <p>Du bist nicht nur Begleitung.</p>
-    <p class="highlight">Du bist das Fundament, auf dem ich stehen kann –</p>
-    <p>und auf dem auch anderes wachsen konnte,<br />
-    wie zum Beispiel <span class="highlight">VIRENNA.</span></p>
-    <p class="highlight">Danke. <span class="heart" aria-hidden="true">♥</span><span class="sr-only">Symbol für Liebe</span></p>
-    <div class="signature">In Liebe,<br />Tobi</div>
-  </main>
+    deinen Einsatz, der so vieles möglich macht.
+  </p>
+
+  <p>Du bist nicht nur Begleitung.</p>
+
+  <p class="highlight">
+    Du bist das Fundament, auf dem ich stehen kann –
+  </p>
+
+  <p>
+    und auf dem auch anderes wachsen konnte,<br />
+    wie zum Beispiel <span class="highlight">VIRENNA</span>.
+  </p>
+
+  <p class="highlight">Danke.<span class="heart">♥</span></p>
+
+  <p class="signature">In Liebe,<br />Tobi</p>
+
+</main>
+
 </body>
 </html>

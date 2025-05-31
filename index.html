@@ -23,26 +23,23 @@
     }
 
     body {
-      padding: 5vw;
+      padding: 6vw 5vw 10vw;
     }
 
     main[role="document"] {
       max-width: 680px;
       margin: 0 auto;
-      background: #1b1b1b;
-      padding: 6vw 5vw 10vw;
-      box-shadow: 0 0 1.5vw rgba(0, 0, 0, 0.4);
     }
 
     .seal-box {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 2rem;
+      margin-bottom: 2.5rem;
       padding: 2rem;
       border-radius: 16px;
       background: #1b1b1b;
-      box-shadow: 0 0 40px rgba(244, 196, 48, 0.5);
+      box-shadow: 0 0 40px rgba(244, 196, 48, 0.6);
     }
 
     .seal-box img {
@@ -52,10 +49,10 @@
     }
 
     h1 {
-      font-size: clamp(1.6rem, 6vw, 2.4rem);
+      font-size: clamp(1.8rem, 6vw, 2.4rem);
       color: var(--gold);
       text-align: center;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2.2rem;
     }
 
     p { margin: 1.2rem 0; }
@@ -92,7 +89,7 @@
 
     @media print {
       body { background: white; color: black; }
-      main[role="document"] { box-shadow: none; }
+      .seal-box { box-shadow: none; }
       .highlight, .signature, .heart { color: black; }
     }
   </style>

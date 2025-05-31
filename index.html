@@ -5,61 +5,64 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#f4c430" />
   <title>EHRENZERTIFIKAT</title>
+
   <link rel="manifest" href="site.webmanifest" />
   <link rel="icon" href="favicon-32x32.png" type="image/png" />
+
   <style>
     :root {
       --gold: #f4c430;
-      --bg-dark: #1b1b1b;
-      --text: #fdfdfd;
+      --background: #121212;
+      --foreground: #1b1b1b;
     }
 
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
       padding: 0;
-      background: #121212;
-      color: var(--text);
+      background: var(--background);
+      color: #fdfdfd;
       font-family: Georgia, serif;
       overflow-x: hidden;
     }
 
     body {
-      padding: 5vw;
+      padding: 0 1.5rem;
     }
 
     main[role="document"] {
-      max-width: 700px;
-      margin: auto;
-      background: var(--bg-dark);
+      max-width: 680px;
+      margin: 5vh auto;
+      background: var(--foreground);
+      border: 4px solid var(--gold);
       padding: 2rem;
+      box-shadow: 0 0 15px rgba(244, 196, 48, 0.2);
     }
 
     .seal-wrapper {
-      background: #1a1a1a;
+      background: var(--foreground);
       border-radius: 1rem;
       padding: 1rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 0 25px rgba(244, 196, 48, 0.35);
+      margin: 2rem auto 1.5rem;
+      box-shadow: 0 0 12px rgba(244, 196, 48, 0.35); /* << Glow exakt angepasst */
       display: flex;
       justify-content: center;
+      max-width: 400px;
     }
 
-    .seal-wrapper img {
-      width: 180px;
+    .seal {
+      width: 160px;
       max-width: 100%;
-      display: block;
+      height: auto;
     }
 
     h1 {
       text-align: center;
-      font-size: clamp(1.6rem, 6vw, 2.2rem);
+      font-size: 2rem;
       color: var(--gold);
-      letter-spacing: 0.5px;
-      margin: 0 0 2rem 0;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
     }
 
     p {
@@ -71,19 +74,18 @@
       font-weight: bold;
     }
 
-    .heart {
-      font-size: 1.5rem;
-      color: var(--gold);
-      display: inline-block;
-      vertical-align: middle;
-      margin-left: 0.3rem;
-    }
-
     .signature {
       text-align: right;
       font-style: italic;
       color: var(--gold);
       margin-top: 3rem;
+    }
+
+    .heart {
+      font-size: 1.5rem;
+      color: var(--gold);
+      vertical-align: middle;
+      margin-left: 0.3rem;
     }
 
     @media print {
@@ -102,6 +104,7 @@
       }
     }
   </style>
+
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
@@ -112,10 +115,10 @@
 </head>
 <body>
 
-<main role="document">
+<main role="document" aria-label="Ehrenzertifikat">
 
   <div class="seal-wrapper">
-    <img src="VIRENNA_Siegel.PNG" alt="Virenna-Siegel">
+    <img src="VIRENNA_Siegel.PNG" alt="Virenna Siegel" class="seal" />
   </div>
 
   <h1>EHRENZERTIFIKAT</h1>
@@ -140,9 +143,7 @@
     spürbar, auch ohne Schritte.
   </p>
 
-  <p class="highlight">
-    Es ehrt dich – deine tägliche Stärke,
-  </p>
+  <p class="highlight">Es ehrt dich – deine tägliche Stärke,</p>
 
   <p>
     deine Klarheit, deine stille Präsenz,<br />
@@ -157,16 +158,12 @@
 
   <p>
     und auf dem auch anderes wachsen konnte,<br />
-    wie zum Beispiel <span class="highlight">VIRENNA.</span>
+    wie zum Beispiel <span class="highlight">VIRENNA</span>.
   </p>
 
-  <p class="highlight">
-    Danke. <span class="heart">♥</span>
-  </p>
+  <p class="highlight">Danke. <span class="heart">♥</span></p>
 
-  <div class="signature">
-    In Liebe,<br />Tobi
-  </div>
+  <p class="signature">In Liebe,<br />Tobi</p>
 
 </main>
 

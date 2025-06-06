@@ -2,59 +2,69 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes" />
   <meta name="theme-color" content="#f4c430" />
-  <title>ZERTIFIKAT</title>
-  <link rel="manifest" href="manifest.json" />
-  <link rel="icon" href="favicon-32x32.png" type="image/png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-  <style>
-    :root {
-      --gold: #f4c430;
-    }
+  <meta name="description" content="Ein Ehrenzertifikat für echte Helden des Alltags – digital, druckbar, offline verfügbar.">
+  <meta name="keywords" content="Zertifikat, Ehrenurkunde, Dankbarkeit, Virenna, PWA, offline, Geschenk, Mama">
+  <meta name="author" content="Virenna Systems">
 
-    * {
-      box-sizing: border-box;
-    }
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Ehrenzertifikat für Mama" />
+  <meta property="og:description" content="Danke sagen – digital & stilvoll. Dieses Ehrenzertifikat ist ein Zeichen für Mut, Geduld und Liebe." />
+  <meta property="og:image" content="https://virennasystems.github.io/virenna-ehrenzertifkat/VIRENNA_Siegel.PNG" />
+  <meta property="og:url" content="https://virennasystems.github.io/virenna-ehrenzertifkat/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- PWA & Icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+  <title>EHRENZERTIFIKAT</title>
+
+  <style>
+    :root { --gold: #f4c430; }
+
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: clip;
       background: #121212;
       color: #fdfdfd;
       font-family: Georgia, serif;
-      overflow-x: hidden;
+      overscroll-behavior-x: contain;
+      touch-action: manipulation;
     }
 
     body {
-      padding: 0 5vw;
+      padding: 4vw;
+      line-height: 1.8;
     }
 
     main[role="document"] {
-      margin: 5vh auto;
-      padding: 5vw;
-      padding-bottom: 10vw;
-      max-width: 680px;
+      width: 100%;
+      max-width: min(100vw, 650px);
+      margin: auto;
       background: #1b1b1b;
-      border: 4px solid var(--gold);
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .seal-frame {
-      background: #1b1b1b;
-      border: 4px solid var(--gold);
-      border-radius: 1rem;
-      padding: 1rem;
-      margin: 0 auto 2.5rem;
-      width: fit-content;
-      box-shadow: 0 0 25px rgba(244, 196, 48, 0.6);
+      border: 0.8vw solid var(--gold);
+      padding: 6vw;
+      box-shadow: 0 0 3vw rgba(0, 0, 0, 0.4);
+      contain: layout style;
     }
 
     .seal {
       display: block;
-      width: 180px;
-      max-width: 100%;
+      margin: 0 auto 2rem;
+      width: 100%;
+      max-width: 180px;
       height: auto;
+      box-shadow: 0 0 25px rgba(244, 196, 48, 0.7);
     }
 
     h1 {
@@ -65,14 +75,9 @@
       letter-spacing: 1px;
     }
 
-    p {
-      margin: 1.2rem 0;
-    }
+    p { margin: 1.2rem 0; }
 
-    .highlight {
-      color: var(--gold);
-      font-weight: bold;
-    }
+    .highlight { color: var(--gold); font-weight: bold; }
 
     .heart {
       color: var(--gold);
@@ -100,10 +105,7 @@
     }
 
     @media print {
-      @page {
-        margin: 2cm;
-        size: A4 portrait;
-      }
+      @page { margin: 2cm; size: A4 portrait; }
 
       body {
         background: white;
@@ -123,34 +125,82 @@
 
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('service-worker.js');
-      });
+      navigator.serviceWorker.register('service-worker.js').then(reg => {
+        console.log('✅ Service Worker registriert:', reg);
+        reg.onupdatefound = () => {
+          const newWorker = reg.installing;
+          newWorker.onstatechange = () => {
+            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+              const banner = document.createElement('div');
+              banner.style.cssText = `
+                position: fixed;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #f4c430;
+                color: #121212;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                font-weight: bold;
+                box-shadow: 0 0 8px rgba(0,0,0,0.3);
+                z-index: 9999;
+              `;
+              banner.textContent = 'Update verfügbar – tippe zum Aktualisieren';
+              banner.onclick = () => location.reload();
+              document.body.appendChild(banner);
+            }
+          };
+        };
+      }).catch(err => console.error('❌ SW Fehler:', err));
     }
   </script>
 </head>
+
 <body>
   <main role="document" aria-label="Ehrenzertifikat">
-    <div class="seal-frame">
-      <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
-    </div>
+    <img src="VIRENNA_Siegel.PNG" alt="Siegel" class="seal" />
 
     <h1>EHRENZERTIFIKAT</h1>
 
     <p><span class="highlight">Mama,</span></p>
-    <p>In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
-       bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.</p>
-    <p class="highlight">Mit Mut, mit Würde, mit einem Herzen voller Geduld.</p>
+
+    <p>
+      In Zeiten körperlicher Schwäche und geistiger Erschöpfung<br />
+      bist du da – ohne zu zögern, ohne Fragen, ohne dich abzuwenden.
+    </p>
+
+    <p class="highlight">
+      Mit Mut, mit Würde, mit einem Herzen voller Geduld.
+    </p>
+
     <p>Dieses Siegel steht nicht für ein Ziel –</p>
-    <p class="highlight">sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.</p>
-    <p><span class="highlight">Es ehrt dich – deine tägliche Stärke,</span> deine Klarheit, deine stille Präsenz,<br />
-       deinen Einsatz, der so vieles möglich macht.</p>
+
+    <p class="highlight">
+      sondern für deine tägliche Begleitung – spürbar, auch ohne Schritte.
+    </p>
+
+    <p>
+      <span class="highlight">Es ehrt dich – deine tägliche Stärke,</span>
+      deine Klarheit, deine stille Präsenz,<br />
+      deinen Einsatz, der so vieles möglich macht.
+    </p>
+
     <p>Du bist nicht nur Begleitung.</p>
-    <p class="highlight">Du bist das Fundament, auf dem ich stehen kann –</p>
-    <p>und auf dem auch anderes wachsen konnte,<br />
-       wie zum Beispiel <span class="highlight">VIRENNA.</span></p>
-    <p class="highlight">Danke. <span class="heart" aria-hidden="true">♥</span>
-       <span class="sr-only">Symbol für Liebe</span></p>
+
+    <p class="highlight">
+      Du bist das Fundament, auf dem ich stehen kann –
+    </p>
+
+    <p>
+      und auf dem auch anderes wachsen konnte,<br />
+      wie zum Beispiel <span class="highlight">VIRENNA.</span>
+    </p>
+
+    <p class="highlight">
+      Danke. <span class="heart" aria-hidden="true">♥</span>
+      <span class="sr-only">Symbol für Liebe</span>
+    </p>
+
     <div class="signature">In Liebe,<br />Tobi</div>
   </main>
 </body>
